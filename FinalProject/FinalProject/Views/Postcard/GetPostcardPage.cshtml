@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNet.Identity
+@model FinalProject.Models.Postcard
+
+@{
+    ViewBag.Title = "Postcard";
+}
+
+@section styles
+{
+    <link type="text/css" rel="stylesheet" href="~/Content/jquery-comments/jquery-comments.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/jquery-comments/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/star-rating/star-rating.min.css" />
+}
+
+<span id="postcard-id" style="display:none">@Model.Id</span>
+
+<center>
+    <h1>@Model.Name</h1>
+    <p>Author: @Html.ActionLink(@Model.Owner.UserName, "GetUserPage", "User", null, null)</p>
+    <img id="main-postcard" src="@Model.ImageUrl" style="max-height:100%;max-width:100%" />
+</center>
+
+@if (Request.IsAuthenticated)
+{
+    <br />
+    <center>
+        <p>Average rating: @Model.AverageRating</p>
+        <img id="rating-loader" src="~/Content/OwlCarousel/AjaxLoader.gif"
+             style="display:none" />
+        <p id="rate-success" style="color:green;display:none">Your rating was successfully changed!</p>
+        <input id="rating" type="number" class="rating" min="0" max="5" step="1"
+               value="@ViewBag.RatingValue" />
+    </center>
+    <br />
+    <center>
+        <img id="comments-loader" src="~/Content/OwlCarousel/AjaxLoader.gif" />
+    </center>
+    <div id="comments-section"></div>
+
+    @section scripts
+    {
+        <script type="text/javascript" src="~/Scripts/jquery-comments/jquery-comments.js"></script>
+        <script type="text/javascript" src="~/Scripts/DateFormatting/data.format.js"></script>
+        <script type="text/javascript" src="~/Scripts/Common/loadPostcardPage.js"></script>
+        <script type="text/javascript" src="~/Scripts/star-rating/star-rating.min.js"></script>
+    }
+}

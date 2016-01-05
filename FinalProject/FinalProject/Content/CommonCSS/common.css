@@ -1,0 +1,16 @@
+﻿.thumbnails img:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+.user-div{
+    padding: 0.3em;
+    background-color: #f0ad4e; 
+    border-radius: 10px 10px 10px 10px;
+}
+
+td{
+    padding:0.3em;
+    vertical-align: top;
+}
+

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/styleBundles/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/scriptBundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-home" })
+                @using (Html.BeginForm("GetImagesByHashTag", "Search", FormMethod.Get, new
+                {
+                    @class = "navbar-nav",
+                    id = "search-bar",
+                    style = "margin-top:6px"
+                }))
+                {
+                    <input type="search" placeholder="Search" name="hashTag">
+                }
+            </div>
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <hr />
+            <a href="https://github.com/andrewtroyan/Itransition" target="_blank">
+                <center>
+                    <img src="~/Content/img/GitHub-Mark-32px.png"
+                         style="height:20px;width:20px" />
+                </center>
+            </a>
+        </footer>
+    </div>
+    @Scripts.Render("~/scriptBundles/jquery")
+    @Scripts.Render("~/scriptBundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

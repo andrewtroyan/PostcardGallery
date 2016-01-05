@@ -1,0 +1,33 @@
+﻿@model FinalProject.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Settings";
+}
+
+<br />
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="user-div">
+    <table>
+        <tr>
+            <td>
+                <img src="~/Content/img/user.png" class="img-rounded" />
+            </td>
+            <td>
+                <h2>@Model.UserName</h2>
+                <h3>Rating: @Model.AverageRating</h3>
+                <div id="medals">
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                    <img src="http://s.pikabu.ru/images/awards/03_best_week_post.png" />
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+@Html.ActionLink("Change your data", "ChangeData", null, new { @class = "btn btn-success" })
+<h3>Number of cards: @Model.Medals.Count</h3>
+
