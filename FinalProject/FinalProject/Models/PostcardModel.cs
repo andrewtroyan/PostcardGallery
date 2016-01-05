@@ -23,7 +23,15 @@ namespace FinalProject.Models
         public string ThumbnailUrl { get; set; }
 
         [Required]
-        public int AverageRating { get; set; }
+        public int AverageRating
+        {
+            get
+            {
+                return Ratings.Count > 0 ? Ratings.Sum(r => r.Value) /
+                    Ratings.Count : 0;
+            }
+            set { }
+        }
 
         [Required]
         public DateTime CreationTime { get; set; }

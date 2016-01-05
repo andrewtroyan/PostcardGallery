@@ -32,5 +32,32 @@ namespace FinalProject.Controllers
                 return View("Error");
             }
         }
+
+        //[HttpGet]
+        //public ActionResult GetImagesAll(string value)
+        //{
+        //    if (value == null)
+        //    {
+        //        ViewBag.Reason = "You didn't enter anything.";
+        //        return View("Error");
+        //    }
+        //    ViewBag.SearchingValue = value;
+        //    var postcardWithHastTag = dataBase.HashTags.Where(h =>
+        //        h.Value.Contains(value.Trim())).Select(h => h.RelatedPostcards).
+        //        Cast<Postcard>().Distinct();
+        //    var postcardWithComments = dataBase.Comments.Where(c =>
+        //        c.Value.Contains(value.Trim())).Select(c => c.RelatedPostcard);
+        //    var postcardWithNames = dataBase.Postcards.Where(p =>
+        //        p.Name.Contains(value.Trim()));
+        //    //if (currentHashTag != null)
+        //    //{
+        //    //    return View(currentHashTag);
+        //    //}
+        //    //else
+        //    //{
+        //    //    ViewBag.Reason = "There are no images with given hash tag.";
+        //    //    return View("Error");
+        //    //}
+        //}
     }
 }

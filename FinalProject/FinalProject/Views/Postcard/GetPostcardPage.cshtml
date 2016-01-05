@@ -13,6 +13,7 @@
 }
 
 <span id="postcard-id" style="display:none">@Model.Id</span>
+<span id="username" style="display:none">@Model.Owner.UserName</span>
 
 <center>
     <h1>@Model.Name</h1>
@@ -24,7 +25,9 @@
 {
     <br />
     <center>
-        <p>Average rating: @Model.AverageRating</p>
+        <p>Average rating: 
+            <span id="average-rating">@Model.AverageRating</span>
+        </p>
         <img id="rating-loader" src="~/Content/OwlCarousel/AjaxLoader.gif"
              style="display:none" />
         <p id="rate-success" style="color:green;display:none">Your rating was successfully changed!</p>

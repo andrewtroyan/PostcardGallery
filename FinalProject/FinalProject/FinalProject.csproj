@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201601050714366_PostcardsCreationTime.Designer.cs">
       <DependentUpon>201601050714366_PostcardsCreationTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601050856089_PostcardAverageRating.cs" />
+    <Compile Include="Migrations\201601050856089_PostcardAverageRating.Designer.cs">
+      <DependentUpon>201601050856089_PostcardAverageRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601050909402_PostcardAverageRating1.cs" />
+    <Compile Include="Migrations\201601050909402_PostcardAverageRating1.Designer.cs">
+      <DependentUpon>201601050909402_PostcardAverageRating1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -320,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Comparers\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Data\" />
   </ItemGroup>
@@ -355,6 +364,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601050714366_PostcardsCreationTime.resx">
       <DependentUpon>201601050714366_PostcardsCreationTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601050856089_PostcardAverageRating.resx">
+      <DependentUpon>201601050856089_PostcardAverageRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601050909402_PostcardAverageRating1.resx">
+      <DependentUpon>201601050909402_PostcardAverageRating1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

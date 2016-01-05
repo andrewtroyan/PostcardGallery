@@ -40,23 +40,22 @@ namespace FinalProject.Controllers
         }
 
         [Authorize]
-        public ActionResult RatePostcard(int? postcardId, int? rating)
+        public JsonResult RatePostcard(int? postcardId, int? rating)
         {
             if (postcardId == null || rating == null)
             {
-                ViewBag.Reason = "Invalid arguments.";
-                return View("Error");
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
             Postcard postcard = dataBase.Postcards.SingleOrDefault(p =>
                 p.Id == postcardId.Value);
             if (postcard == null)
             {
-                ViewBag.Reason = "There is no card with given id.";
-                return View("Error");
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
             postcard.Rate(User.Identity.GetUserId(), rating.Value);
             dataBase.SaveChanges();
-            return new EmptyResult();
+            return Json(new { averageRating = postcard.AverageRating }, 
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

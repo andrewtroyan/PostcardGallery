@@ -49,5 +49,27 @@ namespace FinalProject.Controllers
             }
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
+        
+        public JsonResult PostComment(int? postcardId, string value,
+            string creationTime)
+        {
+            if (postcardId == null || value == null || creationTime == null)
+            {
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+            }
+            Comment newComment = new Comment
+            {
+                OwnerId = User.Identity.GetUserId(),
+                RelatedPostcardId = postcardId,
+                Value = value,
+                CreationTime = creationTime
+            };
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                db.Comments.Add(newComment);
+                db.SaveChanges();
+            }
+            return Json(new { id = newComment.Id }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
