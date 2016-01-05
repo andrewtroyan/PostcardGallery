@@ -66,13 +66,12 @@
                         success: function (data) {
                             commentJSON.id = data.id;
                             commentJSON.fullname = username;
-                            console.log(commentJSON.created);
                             success(commentJSON);
                         }
                     });
                 },
                 timeFormatter: function (time) {
-                    return new Date(time).format('dd/mm/yyyy hh:MM:ss');
+                    return new Date(time).format('dd/mm/yyyy HH:MM:ss');
                 },
                 getComments: function (success, error) {
                     success(data);

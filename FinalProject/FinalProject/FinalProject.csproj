@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes with extension methods\CommentOperations.cs" />
     <Compile Include="Classes with extension methods\PostcardOperations.cs" />
+    <Compile Include="Comparers\PostcardComparer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DataController.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Content\img\GitHub-Mark-32px.png" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\play-pause.svg" />
+    <Content Include="Content\img\search-icon.png" />
     <Content Include="Content\img\user.png" />
     <Content Include="Content\JQCloud\jqcloud.css" />
     <Content Include="Content\jquery-comments\font-awesome.min.css" />
@@ -325,10 +327,10 @@
     <Content Include="Views\Manage\ChangeData.cshtml" />
     <Content Include="Views\Postcard\GetPostcardPage.cshtml" />
     <Content Include="Views\Search\GetImagesByHashTag.cshtml" />
+    <Content Include="Views\Search\GetImagesAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Comparers\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Data\" />
   </ItemGroup>

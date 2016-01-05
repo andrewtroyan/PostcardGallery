@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FinalProject.Comparers;
 
 namespace FinalProject.Controllers
 {
@@ -22,42 +23,31 @@ namespace FinalProject.Controllers
             ViewBag.HashTag = hashTag;
             var currentHashTag = dataBase.HashTags.SingleOrDefault
                 (h => h.Value == hashTag);
-            if (currentHashTag != null)
-            {
-                return View(currentHashTag);
-            }
-            else
-            {
-                ViewBag.Reason = "There are no images with given hash tag.";
-                return View("Error");
-            }
+            return View(currentHashTag);
         }
 
-        //[HttpGet]
-        //public ActionResult GetImagesAll(string value)
-        //{
-        //    if (value == null)
-        //    {
-        //        ViewBag.Reason = "You didn't enter anything.";
-        //        return View("Error");
-        //    }
-        //    ViewBag.SearchingValue = value;
-        //    var postcardWithHastTag = dataBase.HashTags.Where(h =>
-        //        h.Value.Contains(value.Trim())).Select(h => h.RelatedPostcards).
-        //        Cast<Postcard>().Distinct();
-        //    var postcardWithComments = dataBase.Comments.Where(c =>
-        //        c.Value.Contains(value.Trim())).Select(c => c.RelatedPostcard);
-        //    var postcardWithNames = dataBase.Postcards.Where(p =>
-        //        p.Name.Contains(value.Trim()));
-        //    //if (currentHashTag != null)
-        //    //{
-        //    //    return View(currentHashTag);
-        //    //}
-        //    //else
-        //    //{
-        //    //    ViewBag.Reason = "There are no images with given hash tag.";
-        //    //    return View("Error");
-        //    //}
-        //}
+        [HttpGet]
+        public ActionResult GetImagesAll(string value)
+        {
+            if (value == null)
+            {
+                ViewBag.Reason = "You didn't enter anything.";
+                return View("Error");
+            }
+            string searchingValue = value.Trim();
+            PostcardComparer comparer = new PostcardComparer();
+            var postcardWithHastTag = dataBase.HashTags.Where(h =>
+                h.Value.Contains(searchingValue)).Select(h => h.RelatedPostcards).
+                SelectMany(c => c).AsEnumerable();
+            var postcardWithComments = dataBase.Comments.Where(c =>
+                c.Value.Contains(searchingValue)).Select(c => c.RelatedPostcard).
+                AsEnumerable(); ;
+            var postcardWithNames = dataBase.Postcards.Where(p =>
+                p.Name.Contains(searchingValue)).AsEnumerable(); ;
+            var uniquePostcards = postcardWithHastTag.Union(postcardWithComments,
+                comparer).Union(postcardWithNames, comparer);
+            ViewBag.SearchingValue = value;
+            return View(uniquePostcards);
+        }
     }
 }

@@ -23,7 +23,6 @@
             $('#cloud-loader').show();
         },
         success: function (data) {
-            console.log(data);
             $('#cloud-loader').hide();
             $('#cloud-area').jQCloud(data, {
                 autoResize: true

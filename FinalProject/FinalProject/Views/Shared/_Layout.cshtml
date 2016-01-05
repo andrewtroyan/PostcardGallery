@@ -19,14 +19,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-home" })
-                @using (Html.BeginForm("GetImagesByHashTag", "Search", FormMethod.Get, new
+                @using (Html.BeginForm("GetImagesAll", "Search", FormMethod.Get, new
                 {
                     @class = "navbar-nav",
                     id = "search-bar",
                     style = "margin-top:6px"
                 }))
                 {
-                    <input type="search" placeholder="Search" name="hashTag">
+                    <input type="search" name="value">
                 }
             </div>
             <div class="navbar-collapse collapse">

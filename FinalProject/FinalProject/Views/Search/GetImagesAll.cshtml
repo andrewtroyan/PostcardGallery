@@ -1,0 +1,22 @@
+﻿@using FinalProject.Models
+@model IEnumerable<Postcard>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<br />
+<h1>Search: @ViewBag.SearchingValue</h1>
+<br />
+
+<div class="thumbnails">
+    <center>
+        @foreach (var postcard in Model)
+        {
+            <a href="/Postcard/GetPostcardPage?id=@postcard.Id">
+                <img src="@postcard.ThumbnailUrl" alt="@postcard.Name"
+                     style="margin:10px">
+            </a>
+        }
+    </center>
+</div>
