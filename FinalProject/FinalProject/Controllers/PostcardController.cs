@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FinalProject.Classes_with_extension_methods;
+using FinalProject.LuceneSearch;
 
 namespace FinalProject.Controllers
 {
@@ -56,6 +57,19 @@ namespace FinalProject.Controllers
             dataBase.SaveChanges();
             return Json(new { averageRating = postcard.AverageRating }, 
                 JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetPostcardsPage(string userId, int? pageSize, int? postcardPage)
+        {
+            if (userId == null || pageSize == null || pageSize == 0 || postcardPage == null)
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
+            int postcardsToSkip = postcardPage.Value * pageSize.Value;
+            var result = PostcardSearcher.Search(userId, "OwnerId").Skip(postcardsToSkip).
+                Take(pageSize.Value).Select(p => new { databaseId = p.Id, thumbnailUrl = 
+                p.ThumbnailUrl, name = p.Name });
+            return Json( result, JsonRequestBehavior.AllowGet);
         }
     }
 }

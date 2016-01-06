@@ -18,7 +18,8 @@
 <center>
     <h1>@Model.Name</h1>
     <p>Author: @Html.ActionLink(@Model.Owner.UserName, "GetUserPage", "User", null, null)</p>
-    <img id="main-postcard" src="@Model.ImageUrl" style="max-height:100%;max-width:100%" />
+    <img id="main-postcard" src="@Model.ImageUrl" alt="@Model.Name" 
+         title="@Model.Name" style="max-height:100%;max-width:100%" />
 </center>
 
 @if (Request.IsAuthenticated)

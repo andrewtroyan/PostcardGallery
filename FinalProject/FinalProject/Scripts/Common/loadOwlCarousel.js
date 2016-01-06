@@ -44,7 +44,7 @@
                 container.append(
                 '<a href="/Postcard/GetPostcardPage?id=' + data[i].databaseId + '">' +
                     '<img src="' + data[i].thumbnailUrl + '" alt="' + data[i].name + '"' +
-                ' style="margin:10px">' + '</a>'
+                '" title="' + data[i].name + '"' + ' style="margin:10px">' + '</a>'
                 );
             }
         }
@@ -65,7 +65,7 @@
                 container.append(
                 '<a href="/Postcard/GetPostcardPage?id=' + data[i].databaseId + '">' +
                     '<img src="' + data[i].thumbnailUrl + '" alt="' + data[i].name + '"' +
-                ' style="margin:10px">' + '</a>'
+                '" title="' + data[i].name + '"' + ' style="margin:10px">' + '</a>'
                 );
             }
         }

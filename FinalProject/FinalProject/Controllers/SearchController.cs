@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FinalProject.Comparers;
+using FinalProject.LuceneSearch;
 
 namespace FinalProject.Controllers
 {
@@ -35,15 +36,20 @@ namespace FinalProject.Controllers
                 return View("Error");
             }
             string searchingValue = value.Trim();
+            int hitsLimit = 100;
+            var postcardWithNames = PostcardSearcher.Search(value, "Name", hitsLimit).
+                ToList();
+            if (postcardWithNames.Count >= hitsLimit)
+            {
+                return View(postcardWithNames);
+            }
             PostcardComparer comparer = new PostcardComparer();
             var postcardWithHastTag = dataBase.HashTags.Where(h =>
                 h.Value.Contains(searchingValue)).Select(h => h.RelatedPostcards).
                 SelectMany(c => c).AsEnumerable();
             var postcardWithComments = dataBase.Comments.Where(c =>
                 c.Value.Contains(searchingValue)).Select(c => c.RelatedPostcard).
-                AsEnumerable(); ;
-            var postcardWithNames = dataBase.Postcards.Where(p =>
-                p.Name.Contains(searchingValue)).AsEnumerable(); ;
+                AsEnumerable();
             var uniquePostcards = postcardWithHastTag.Union(postcardWithComments,
                 comparer).Union(postcardWithNames, comparer);
             ViewBag.SearchingValue = value;
