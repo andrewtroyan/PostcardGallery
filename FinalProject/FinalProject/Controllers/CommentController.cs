@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using FinalProject.Models;
 using FinalProject.Classes_with_extension_methods;
 using Microsoft.AspNet.Identity;
+using FinalProject.Filters;
 
 namespace FinalProject.Controllers
 {
+    [Culture]
     [Authorize]
     public class CommentController : Controller
     {

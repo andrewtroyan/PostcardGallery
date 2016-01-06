@@ -7,7 +7,8 @@
     @Styles.Render("~/styleBundles/css")
     @RenderSection("styles", required: false)
     @Scripts.Render("~/scriptBundles/modernizr")
-    <link type="text/css" rel="stylesheet" id="black-white" href="~/Content/Themes/BlackWhite.css" />
+    <link type="text/css" rel="stylesheet" id="black-white" 
+          href="~/Content/Themes/BlackWhite.css" />
 </head>
 <body>
     <div id="main-header" class="navbar navbar-inverse navbar-fixed-top">
@@ -45,22 +46,22 @@
             <div class="btn-group dropup pull-right" style="margin-left:10px">
                 <button type="button" class="btn btn-success btn-xs dropdown-toggle"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Themes&nbsp;&nbsp;<span class="caret"></span>
+                    @Resources.Translations.Themes&nbsp;&nbsp;<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" id="styleOptions">
-                    <li><a href="#" data-theme="BlackWhite">Default</a></li>
-                    <li><a href="#" data-theme="GreenGray">Green and gray</a></li>
-                    <li><a href="#" data-theme="VioletBeige">Violet and beige</a></li>
+                    <li><a href="#" data-theme="BlackWhite">@Resources.Translations.Default</a></li>
+                    <li><a href="#" data-theme="GrayGreen">@Resources.Translations.GrayAndGreen</a></li>
+                    <li><a href="#" data-theme="VioletBeige">@Resources.Translations.VioletAndBeige</a></li>
                 </ul>
             </div>
             <div class="btn-group dropup pull-right" style="margin-left:10px">
                 <button type="button" class="btn btn-success btn-xs dropdown-toggle"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Languages&nbsp;&nbsp;<span class="caret"></span>
+                    @Resources.Translations.Language&nbsp;&nbsp;<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Русский</a></li>
+                    <li><a href="/Culture/ChangeCulture?lang=en">English</a></li>
+                    <li><a href="/Culture/ChangeCulture?lang=ru">Русский</a></li>
                 </ul>
             </div>
         </footer>

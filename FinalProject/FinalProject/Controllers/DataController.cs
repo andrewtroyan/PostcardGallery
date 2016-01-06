@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.Models;
 using Microsoft.AspNet.Identity;
+using FinalProject.Filters;
 
 namespace FinalProject.Controllers
 {
+    [Culture]
     public class DataController : Controller
     {
         private ApplicationDbContext dataBase = new ApplicationDbContext();

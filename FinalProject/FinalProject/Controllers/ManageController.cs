@@ -7,9 +7,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FinalProject.Models;
+using FinalProject.Filters;
 
 namespace FinalProject.Controllers
 {
+    [Culture]
     [Authorize]
     public class ManageController : Controller
     {

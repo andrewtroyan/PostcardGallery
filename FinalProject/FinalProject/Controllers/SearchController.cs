@@ -6,9 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.Comparers;
 using FinalProject.LuceneSearch;
+using FinalProject.Filters;
 
 namespace FinalProject.Controllers
 {
+    [Culture]
     public class SearchController : Controller
     {
         private ApplicationDbContext dataBase = new ApplicationDbContext();

@@ -7,9 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.Classes_with_extension_methods;
 using FinalProject.LuceneSearch;
+using FinalProject.Filters;
 
 namespace FinalProject.Controllers
 {
+    [Culture]
     public class PostcardController : Controller
     {
         private ApplicationDbContext dataBase = new ApplicationDbContext();

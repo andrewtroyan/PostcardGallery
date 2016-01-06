@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using FinalProject.Models;
 @model FinalProject.Models.Postcard
 
 @{
@@ -21,7 +22,17 @@
     <img id="main-postcard" src="@Model.ImageUrl" alt="@Model.Name" 
          title="@Model.Name" style="max-height:100%;max-width:100%" />
 </center>
-
+<br/>
+<div id="hashTags" class="container">
+    <p class="pull-left">Tags:&nbsp;&nbsp;</p>
+    @foreach (HashTag hashTag in Model.HashTags)
+    {
+        <p class="pull-left">
+            #<a href="@String.Format("/Search/GetImagesByHashTag?hashTag={0}",
+                  hashTag.Value)">@hashTag.Value</a>&nbsp;&nbsp;
+        </p>
+    }
+</div>
 @if (Request.IsAuthenticated)
 {
     <br />
