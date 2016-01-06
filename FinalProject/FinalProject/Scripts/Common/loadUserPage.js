@@ -1,8 +1,11 @@
 ﻿$(document).ready(function () {
-    var pageSize = calculatePageSize();
-    console.log(pageSize);
-    var userId = $('#user-id').text();
+    if ($('#medals').children().length === 0) {
+        $('#medals').css('background-color', 'transparent');
+    }
 
+    var pageSize = calculatePageSize();
+    var userId = $('#user-id').text();
+    $('#more-postcards-button').click(loadPostcards);
     var page = 0;
     var inCallback = false;
     function loadPostcards() {
@@ -14,10 +17,12 @@
                 dataType: 'json',
                 beforeSend: function () {
                     $('#loader').show();
+                    $('#more-postcards-button').hide();
                 },
                 success: function (data) {
                     console.log(data);
                     $('#loader').hide();
+                    $('#more-postcards-button').show();
                     if (data.length != 0) {
                         page++;
                         var i;
@@ -54,6 +59,4 @@
     }
 
     loadPostcards();
-
-    $('#more-postcards-button').click(loadPostcards);
 });

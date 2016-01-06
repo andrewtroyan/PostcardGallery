@@ -9,16 +9,14 @@
     {
         @Html.AntiForgeryToken()
         <div id="socialLoginList">
-            <p>
-                @foreach (AuthenticationDescription p in loginProviders)
-                {
-                    <button type="submit" class="btn btn-social btn-@p.Caption.ToLower()" id="@p.AuthenticationType"
-                            name="provider" value="@p.AuthenticationType"
-                            title="Log in using your @p.Caption account">
-                        <span class="fa fa-@p.Caption.ToLower()"></span>@p.Caption
-                    </button>
-                }
-            </p>
+            @foreach (AuthenticationDescription p in loginProviders)
+            {
+                <button type="submit" class="btn btn-social btn-@p.Caption.ToLower()" id="@p.AuthenticationType"
+                        name="provider" value="@p.AuthenticationType"
+                        title="Log in using your @p.Caption account" style="margin:5px">
+                    <span class="fa fa-@p.Caption.ToLower()"></span>@p.Caption
+                </button><br/>
+            }
         </div>
     }
 }

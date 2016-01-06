@@ -271,6 +271,10 @@
     <Content Include="Content\SocialButtons\bootstrap-social.css" />
     <Content Include="Content\star-rating\loading.gif" />
     <Content Include="Content\star-rating\star-rating.min.css" />
+    <Content Include="Scripts\StyleSwitcher\jQuery.style.switcher.min.js" />
+    <Content Include="Content\Themes\BlackWhite.css" />
+    <Content Include="Content\Themes\GreenGray.css" />
+    <Content Include="Content\Themes\VioletBeige.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -285,6 +289,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Common\loadOwlCarousel.js" />
     <Content Include="Scripts\Common\loadPostcardPage.js" />
+    <Content Include="Scripts\Common\loadStyleSwitcher.js" />
     <Content Include="Scripts\Common\loadUserPage.js" />
     <Content Include="Scripts\DateFormatting\data.format.js" />
     <Content Include="Scripts\JQCloud\jqcloud.js" />

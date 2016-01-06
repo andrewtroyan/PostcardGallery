@@ -6,18 +6,22 @@
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Create a postcard", "Create", "Postcard")</li>
+            <li>@Html.ActionLink("Create a postcard", "Create", "Postcard", new { style = "color:#ededed" })</li>
             <li>
-                @Html.ActionLink("Settings", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Settings", "Index", "Manage", routeValues: null, 
+                    htmlAttributes: new { title = "Manage", style = "color:#ededed" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" 
+                   style="color:#ededed">Log off</a></li>
         </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null,
+           htmlAttributes: new { id = "registerLink", style = "color:#ededed" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null,
+           htmlAttributes: new { id = "loginLink", style = "color:#ededed" })</li>
     </ul>
 }

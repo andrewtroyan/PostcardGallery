@@ -27,6 +27,7 @@ namespace FinalProject.Controllers
                     return Json(new { success = false }, JsonRequestBehavior.AllowGet);
                 }
                 comment.Like(User.Identity.GetUserId());
+                ProcessMedalsForLikes(comment);
             }
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
@@ -70,6 +71,47 @@ namespace FinalProject.Controllers
                 db.SaveChanges();
             }
             return Json(new { id = newComment.Id }, JsonRequestBehavior.AllowGet);
+        }
+
+        private void ProcessMedalsForLikes(Comment comment)
+        {
+            using (ApplicationDbContext dataBase = new ApplicationDbContext())
+            {
+                ApplicationUser owner = dataBase.Users.Single(u => u.Id ==
+                    comment.OwnerId);
+                var likes = comment.Likers.Count > 0 ? comment.Likers.
+                Where(l => l.Id != owner.Id).ToList().Count : 0;
+                Medal medal = null;
+
+                if (likes >= 15)
+                {
+                    medal = dataBase.Medals.Single(m => m.Description ==
+                        "ForFifteenLikes");
+                    if (owner.Medals.SingleOrDefault(m => m.Id == medal.Id) == null)
+                    {
+                        owner.Medals.Add(medal);
+                    }
+                }
+                else if (likes >= 10)
+                {
+                    medal = dataBase.Medals.Single(m => m.Description ==
+                        "ForTenLikes");
+                    if (owner.Medals.SingleOrDefault(m => m.Id == medal.Id) == null)
+                    {
+                        owner.Medals.Add(medal);
+                    }
+                }
+                else if (likes >= 5)
+                {
+                    medal = dataBase.Medals.Single(m => m.Description ==
+                        "ForFiveLikes");
+                    if (owner.Medals.SingleOrDefault(m => m.Id == medal.Id) == null)
+                    {
+                        owner.Medals.Add(medal);
+                    }
+                }
+                dataBase.SaveChanges();
+            }
         }
     }
 }

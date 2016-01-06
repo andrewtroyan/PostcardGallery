@@ -7,9 +7,10 @@
     @Styles.Render("~/styleBundles/css")
     @RenderSection("styles", required: false)
     @Scripts.Render("~/scriptBundles/modernizr")
+    <link type="text/css" rel="stylesheet" id="black-white" href="~/Content/Themes/BlackWhite.css" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="main-header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -18,13 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-home" })
-                @using (Html.BeginForm("GetImagesAll", "Search", FormMethod.Get, new
-                {
-                    @class = "navbar-nav",
-                    id = "search-bar",
-                    style = "margin-top:6px"
-                }))
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" },
+                    new { @class = "navbar-brand glyphicon glyphicon-home",
+                        style = "color: #ededed" })
+                @using (Html.BeginForm("GetImagesAll", "Search", FormMethod.Get,
+                    new { @class = "navbar-nav", id = "search-bar",
+                        style = "margin-top:6px" }))
                 {
                     <input type="search" name="value">
                 }
@@ -39,15 +39,36 @@
         <footer>
             <hr />
             <a href="https://github.com/andrewtroyan/PostcardGallery" target="_blank">
-                <center>
-                    <img src="~/Content/img/GitHub-Mark-32px.png"
-                         style="height:20px;width:20px" />
-                </center>
+                <img src="~/Content/img/GitHub-Mark-32px.png"
+                     style="height:20px;width:20px" />
             </a>
+            <div class="btn-group dropup pull-right" style="margin-left:10px">
+                <button type="button" class="btn btn-success btn-xs dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Themes&nbsp;&nbsp;<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="styleOptions">
+                    <li><a href="#" data-theme="BlackWhite">Default</a></li>
+                    <li><a href="#" data-theme="GreenGray">Green and gray</a></li>
+                    <li><a href="#" data-theme="VioletBeige">Violet and beige</a></li>
+                </ul>
+            </div>
+            <div class="btn-group dropup pull-right" style="margin-left:10px">
+                <button type="button" class="btn btn-success btn-xs dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Languages&nbsp;&nbsp;<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Русский</a></li>
+                </ul>
+            </div>
         </footer>
     </div>
     @Scripts.Render("~/scriptBundles/jquery")
     @Scripts.Render("~/scriptBundles/bootstrap")
+    <script type="text/javascript" src="~/Scripts/StyleSwitcher/jQuery.style.switcher.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Common/loadStyleSwitcher.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -13,7 +13,7 @@
 }
 
 <span id="postcard-id" style="display:none">@Model.Id</span>
-<span id="username" style="display:none">@Model.Owner.UserName</span>
+<span id="username" style="display:none">@User.Identity.GetUserName()</span>
 
 <center>
     <h1>@Model.Name</h1>
