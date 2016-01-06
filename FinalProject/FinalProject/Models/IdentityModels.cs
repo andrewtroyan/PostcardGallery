@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FinalProject.Models
 {
@@ -15,7 +16,19 @@ namespace FinalProject.Models
         public string Surname { get; set; }
 
         [Required]
-        public long AverageRating { get; set; }
+        public long AverageRating
+        {
+            get
+            {
+                int postcardsAverageRaiting = Postcards.Count > 0 ?
+                    (int)(Postcards.Average(p => p.AverageRating)) : 0;
+                int likes = CreatedComments.Count > 0 ? CreatedComments.Sum(c =>
+                     c.Likers.Where(l => l.Id != Id).ToList().Count) : 0;
+                return postcardsAverageRaiting + likes;
+            }
+
+            set { }
+        }
 
         public virtual ICollection<Medal> Medals { get; set; }
 
@@ -60,6 +73,7 @@ namespace FinalProject.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+           
         }
 
         public static ApplicationDbContext Create()

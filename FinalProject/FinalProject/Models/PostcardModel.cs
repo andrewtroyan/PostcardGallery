@@ -27,8 +27,12 @@ namespace FinalProject.Models
         {
             get
             {
-                return Ratings.Count > 0 ? Ratings.Sum(r => r.Value) /
-                    Ratings.Count : 0;
+                if (Ratings.Any())
+                {
+                    var ratings = Ratings.Where(r => r.RaterId != OwnerId).ToList();
+                    return ratings.Count > 0 ? (int)ratings.Average(r => r.Value) : 0;
+                }
+                return 0;
             }
             set { }
         }

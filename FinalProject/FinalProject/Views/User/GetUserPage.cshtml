@@ -1,0 +1,48 @@
+﻿@model FinalProject.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "User";
+}
+
+<span id="user-id" style="display:none">@Model.Id</span>
+
+<br />
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div id="main-container" class="container">
+    <div class="user-div">
+        <table>
+            <tr>
+                <td>
+                    <img src="~/Content/img/user.png" class="img-rounded" />
+                </td>
+                <td>
+                    <h2>@Model.UserName</h2>
+                    <h3>Rating: @Model.AverageRating</h3>
+                    <div id="medals" class="medals-div">
+                        @foreach (var medal in Model.Medals)
+                        {
+                            <img src="@medal.ImageUrl" alt="@medal.Description"
+                                 title="@medal.Description" style="width:35px;height:45px" />
+                        }
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <h3>Amount of postcards: @Model.Postcards.Count</h3>
+    <br />
+    <center>
+        <div id="images"></div>
+        <img id="loader" src="~/Content/img/loading.gif" style="height:30px;width:30px;display:none" />
+        <br />
+        <br />
+        <button id="more-postcards-button" class="btn btn-success">More</button>
+    </center>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Common/loadUserPage.js"></script>
+}
+
