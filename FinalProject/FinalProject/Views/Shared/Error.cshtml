@@ -1,6 +1,4 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
-
-@{
+﻿@{
     ViewBag.Title = Resources.Translations.Error;
 }
 
@@ -10,5 +8,5 @@
     @Resources.Translations.AnErrorOccurredWhileProcessingYourRequest.
 </h4>
 <br />
-<h1 style="color:red">@ViewBag.Reason</h1>
+<h2 class="text-danger">@ViewBag.Reason.</h2>
 

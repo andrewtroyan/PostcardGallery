@@ -23,9 +23,14 @@ namespace FinalProject.Controllers
                 ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotEnterHashTag);
                 return View("Error");
             }
-            ViewBag.HashTag = hashTag;
             var currentHashTag = dataBase.HashTags.SingleOrDefault
                 (h => h.Value == hashTag);
+            if (currentHashTag == null)
+            {
+                ViewBag.Reason = Resources.Translations.ThereIsNoSuchHashTags;
+                return View("Error");
+            }
+            ViewBag.HashTag = hashTag;
             return View(currentHashTag);
         }
 

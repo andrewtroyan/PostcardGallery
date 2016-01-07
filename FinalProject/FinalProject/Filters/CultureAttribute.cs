@@ -12,6 +12,10 @@ namespace FinalProject.Filters
     {
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
+        }
+
+        public void OnActionExecuting(ActionExecutingContext filterContext)
+        {
             string cultureName = null;
             HttpCookie cultureCookie = filterContext.HttpContext.Request.
                 Cookies["lang"];
@@ -32,10 +36,6 @@ namespace FinalProject.Filters
                 CreateSpecificCulture(cultureName);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.
                 CreateSpecificCulture(cultureName);
-        }
-
-        public void OnActionExecuting(ActionExecutingContext filterContext)
-        {
         }
     }
 }

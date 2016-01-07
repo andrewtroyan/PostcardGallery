@@ -324,9 +324,6 @@
   <data name="Vkontakte" xml:space="preserve">
     <value>VK</value>
   </data>
-  <data name="YouDidNotChoosePostcard" xml:space="preserve">
-    <value>You didn't choose a postcard</value>
-  </data>
   <data name="YouDidNotEnterAnything" xml:space="preserve">
     <value>You didn't enter anything</value>
   </data>
@@ -341,5 +338,11 @@
   </data>
   <data name="YourRatingWasSuccessfullyChanged" xml:space="preserve">
     <value>Your rating was successfully changed</value>
+  </data>
+  <data name="YouDidNotEnterPostcardId" xml:space="preserve">
+    <value>You didn't enter postcard id</value>
+  </data>
+  <data name="ThereIsNoSuchHashTags" xml:space="preserve">
+    <value>There is no such hashtags</value>
   </data>
 </root>

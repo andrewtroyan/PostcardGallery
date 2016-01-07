@@ -16,19 +16,20 @@ namespace FinalProject.Controllers
     {
         private ApplicationDbContext dataBase = new ApplicationDbContext();
 
+        [Culture]
         [HttpGet]
         public ActionResult GetPostcardPage(int? id)
         {
             if (id == null)
             {
-                ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotChoosePostcard);
+                ViewBag.Reason = Resources.Translations.YouDidNotEnterPostcardId;
                 return View("Error");
             }
             var postcard = dataBase.Postcards.SingleOrDefault(p =>
                 p.Id == id);
             if (postcard == null)
             {
-                ViewBag.Reason = String.Format("{0}.", Resources.Translations.ThereAreNoImageWithGivenId);
+                ViewBag.Reason = Resources.Translations.ThereAreNoImageWithGivenId;
                 return View("Error");
             }
 

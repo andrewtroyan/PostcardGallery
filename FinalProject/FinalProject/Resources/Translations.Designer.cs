@@ -592,6 +592,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no such hashtags.
+        /// </summary>
+        public static string ThereIsNoSuchHashTags {
+            get {
+                return ResourceManager.GetString("ThereIsNoSuchHashTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top 5.
         /// </summary>
         public static string TopFive {
@@ -682,15 +691,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You didn&apos;t choose a postcard.
-        /// </summary>
-        public static string YouDidNotChoosePostcard {
-            get {
-                return ResourceManager.GetString("YouDidNotChoosePostcard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to You didn&apos;t enter anything.
         /// </summary>
         public static string YouDidNotEnterAnything {
@@ -705,6 +705,15 @@ namespace Resources {
         public static string YouDidNotEnterHashTag {
             get {
                 return ResourceManager.GetString("YouDidNotEnterHashTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t enter postcard id.
+        /// </summary>
+        public static string YouDidNotEnterPostcardId {
+            get {
+                return ResourceManager.GetString("YouDidNotEnterPostcardId", resourceCulture);
             }
         }
         

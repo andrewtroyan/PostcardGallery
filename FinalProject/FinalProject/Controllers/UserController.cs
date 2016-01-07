@@ -15,14 +15,14 @@ namespace FinalProject.Controllers
         {
             if (userId == null)
             {
-                ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotEnterUserId);
+                ViewBag.Reason = Resources.Translations.YouDidNotEnterUserId;
                 return View("Error");
             }
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
             {
-                ViewBag.Reason = String.Format("{0}.", Resources.Translations.UserDoesNotExist);
+                ViewBag.Reason = Resources.Translations.UserDoesNotExist;
                 return View("Error");
             }
             return View(user);

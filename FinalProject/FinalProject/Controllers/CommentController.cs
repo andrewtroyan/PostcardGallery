@@ -7,6 +7,8 @@ using FinalProject.Models;
 using FinalProject.Classes_with_extension_methods;
 using Microsoft.AspNet.Identity;
 using FinalProject.Filters;
+using FinalProject.Hubs;
+using Newtonsoft.Json;
 
 namespace FinalProject.Controllers
 {

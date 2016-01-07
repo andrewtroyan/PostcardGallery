@@ -324,9 +324,6 @@
   <data name="Vkontakte" xml:space="preserve">
     <value>Вконтакте</value>
   </data>
-  <data name="YouDidNotChoosePostcard" xml:space="preserve">
-    <value>Вы не выбрали открытку</value>
-  </data>
   <data name="YouDidNotEnterAnything" xml:space="preserve">
     <value>Вы ничего не ввели</value>
   </data>
@@ -334,12 +331,18 @@
     <value>Вы не ввели хештег</value>
   </data>
   <data name="YouDidNotEnterUserId" xml:space="preserve">
-    <value>Вы не ввели id пользователя</value>
+    <value>Вы не ввели номер пользователя</value>
   </data>
   <data name="YourComment" xml:space="preserve">
     <value>Ваш комментарий</value>
   </data>
   <data name="YourRatingWasSuccessfullyChanged" xml:space="preserve">
     <value>Ваша оценка была успешно изменена</value>
+  </data>
+  <data name="YouDidNotEnterPostcardId" xml:space="preserve">
+    <value>Вы не ввели номер открытки</value>
+  </data>
+  <data name="ThereIsNoSuchHashTags" xml:space="preserve">
+    <value>Таких хештегов нет</value>
   </data>
 </root>

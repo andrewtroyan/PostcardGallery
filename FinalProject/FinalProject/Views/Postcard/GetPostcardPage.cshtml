@@ -14,7 +14,8 @@
 }
 
 <span id="data" 
-      data-postcard-id="@Model.Id" 
+      data-postcard-id="@Model.Id"
+      data-user-id="@User.Identity.GetUserId()" 
       data-username="@User.Identity.GetUserName()"
       data-newest-text="@Resources.Translations.Newest"
       data-oldest-text="@Resources.Translations.Oldest"
@@ -64,6 +65,8 @@
     {
         <script type="text/javascript" src="~/Scripts/jquery-comments/jquery-comments.js"></script>
         <script type="text/javascript" src="~/Scripts/DateFormatting/data.format.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+        <script type="text/javascript" src="~/signalr/hubs"></script>
         <script type="text/javascript" src="~/Scripts/Common/loadPostcardPage.js"></script>
         <script type="text/javascript" src="~/Scripts/star-rating/star-rating.min.js"></script>
     }

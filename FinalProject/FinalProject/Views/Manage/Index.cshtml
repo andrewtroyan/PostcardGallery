@@ -24,8 +24,8 @@
                         <center>
                             @foreach (var medal in Model.Medals)
                             {
-                                <img src="@medal.ImageUrl" alt="@medal.Description"
-                                     title="@medal.Description" style="width:35px;height:45px" />
+                                <img src="@medal.ImageUrl" alt="@Resources.Translations.ResourceManager.GetString(medal.Description)"
+                                     title="@Resources.Translations.ResourceManager.GetString(medal.Description)" style="width:35px;height:45px" />
                             }
                         </center>
                     </div>
