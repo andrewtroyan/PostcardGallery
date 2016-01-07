@@ -16,13 +16,15 @@
                 </td>
                 <td>
                     <h2>@Model.UserName</h2>
-                    <h3>Rating: @Model.AverageRating</h3>
+                    <h3>@Resources.Translations.Rating: @Model.AverageRating</h3>
                     <div id="medals" class="medals-div">
                         <center>
                             @foreach (var medal in Model.Medals)
                             {
-                                <img src="@medal.ImageUrl" alt="@medal.Description"
-                                     title="@medal.Description" style="width:35px;height:47px" />
+                                <img src="@medal.ImageUrl" 
+                                     alt="@Resources.Translations.ResourceManager.GetString(medal.Description)"
+                                     title="@Resources.Translations.ResourceManager.GetString(medal.Description)" 
+                                     style="width:35px;height:47px" />
                             }
                         </center>
                     </div>
@@ -31,14 +33,14 @@
         </table>
     </div>
     <br />
-    <h3>Amount of postcards: @Model.Postcards.Count</h3>
+    <h3>@Resources.Translations.AmountOfPostcards: @Model.Postcards.Count</h3>
     <br />
     <center>
         <div id="images"></div>
         <img id="loader" src="~/Content/img/loading.gif" style="height:30px;width:30px;display:none" />
         <br />
         <br />
-        <button id="more-postcards-button" class="btn btn-success" style="display:none">More</button>
+        <button id="more-postcards-button" class="btn btn-success" style="display:none">@Resources.Translations.More</button>
     </center>
 </div>
 

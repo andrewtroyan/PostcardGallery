@@ -13,7 +13,7 @@ namespace FinalProject.Controllers
     {
         public ActionResult ChangeCulture(string lang)
         {
-            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            string returnUrl = Request.UrlReferrer.AbsoluteUri;
             List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang))
             {

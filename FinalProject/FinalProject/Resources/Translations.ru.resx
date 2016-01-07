@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AmountOfPostcards" xml:space="preserve">
+    <value>Количество открыток</value>
+  </data>
   <data name="CreateAPostcard" xml:space="preserve">
     <value>Создать открытку</value>
   </data>
@@ -155,6 +158,12 @@
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>Выйти</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Ещё</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Рейтинг</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
