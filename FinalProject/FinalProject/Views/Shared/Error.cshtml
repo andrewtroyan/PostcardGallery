@@ -1,11 +1,14 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = Resources.Translations.Error;
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h3 class="text-danger">@Resources.Translations.Error</h3>
+<br/>
+<h4 class="text-danger">
+    @Resources.Translations.AnErrorOccurredWhileProcessingYourRequest.
+</h4>
 <br />
 <h1 style="color:red">@ViewBag.Reason</h1>
 

@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
-    if ($('#medals').children().length === 0) {
+    if ($('#medals > center').children().length === 0) {
         $('#medals').css('background-color', 'transparent');
     }
 
     var pageSize = calculatePageSize();
-    var userId = $('#user-id').text();
+    var userId = $('#data').data('user-id');
     $('#more-postcards-button').click(loadPostcards);
     var page = 0;
     var inCallback = false;
@@ -20,7 +20,6 @@
                     $('#more-postcards-button').hide();
                 },
                 success: function (data) {
-                    console.log(data);
                     $('#loader').hide();
                     $('#more-postcards-button').show();
                     if (data.length != 0) {
@@ -35,7 +34,6 @@
                         }
                     }
                     else {
-                        console.log('fuck!');
                         page = -1;
                         $('#more-postcards-button').fadeOut();
                     }

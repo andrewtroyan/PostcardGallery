@@ -86,12 +86,11 @@ namespace FinalProject.Controllers
                 id = c.Id,
                 created = c.CreationTime,
                 content = c.Value,
-                fullname =
-                c.Owner.UserName,
+                fullname = c.Owner.UserName,
                 upvote_count = c.Likers.Count,
                 profile_picture_url = "/Content/img/user.png",
                 user_has_upvoted = c.Likers.SingleOrDefault(l => l.Id ==
-                currentUserId) != null
+                    currentUserId) != null
             });
             return Json(comments, JsonRequestBehavior.AllowGet);
         }

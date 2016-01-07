@@ -20,7 +20,7 @@ namespace FinalProject.Controllers
         {
             if (hashTag == null)
             {
-                ViewBag.Reason = "You didn't enter a hash tag.";
+                ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotEnterHashTag);
                 return View("Error");
             }
             ViewBag.HashTag = hashTag;
@@ -34,7 +34,7 @@ namespace FinalProject.Controllers
         {
             if (value == null)
             {
-                ViewBag.Reason = "You didn't enter anything.";
+                ViewBag.Reason = String.Format("{ 0}.", Resources.Translations.YouDidNotEnterAnything);;
                 return View("Error");
             }
             string searchingValue = value.Trim();

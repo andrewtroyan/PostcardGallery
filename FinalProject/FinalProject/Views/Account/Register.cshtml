@@ -1,6 +1,6 @@
 ﻿@model FinalProject.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Resources.Translations.Register;
 }
 
 <br />
@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account</h4>
+    <h4>@Resources.Translations.CreateNewAccount</h4>
     <br />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="@Resources.Translations.Register" />
         </div>
     </div>
 }

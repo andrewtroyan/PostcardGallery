@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    var postcardId = $('#postcard-id').text();
-    var username = $('#username').text();
+    var postcardId = $('#data').data('postcard-id');
+    var username = $('#data').data('username');
 
     $('#rating').rating({
         'size' : 'sm',
@@ -38,6 +38,13 @@
                 enableReplying: false,
                 enableEditing: false,
                 roundProfilePictures: true,
+                newestText: $('#data').data('newest-text'),
+                oldestText: $('#data').data('oldest-text'),
+                popularText: $('#data').data('popular-text'),
+                sendText: $('#data').data('send-text'),
+                textareaPlaceholderText: $('#data').data('textarea-placeholder-text'),
+                noCommentsText: $('#data').data('no-comments-text'),
+                youText: username,
                 upvoteComment: function (commentJSON, success, error) {
                     if (commentJSON.user_has_upvoted) {
                         $.ajax({
@@ -65,7 +72,6 @@
                             commentJSON.created,
                         success: function (data) {
                             commentJSON.id = data.id;
-                            commentJSON.fullname = username;
                             success(commentJSON);
                         }
                     });

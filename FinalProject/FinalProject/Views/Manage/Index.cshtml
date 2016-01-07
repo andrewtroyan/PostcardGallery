@@ -1,10 +1,12 @@
 ﻿@model FinalProject.Models.ApplicationUser
 
 @{
-    ViewBag.Title = "Settings";
+    ViewBag.Title = Resources.Translations.Settings;
 }
 
-<span id="user-id" style="display:none">@Model.Id</span>
+<span id="data"
+      data-user-id="@Model.Id">
+</span>
 
 <br />
 <p class="text-success">@ViewBag.StatusMessage</p>
@@ -17,7 +19,7 @@
                 </td>
                 <td>
                     <h2>@Model.UserName</h2>
-                    <h3>Rating: @Model.AverageRating</h3>
+                    <h3>@Resources.Translations.Rating: @Model.AverageRating</h3>
                     <div id="medals" class="medals-div">
                         <center>
                             @foreach (var medal in Model.Medals)
@@ -32,17 +34,17 @@
         </table>
     </div>
     <br />
-    @Html.ActionLink("Change your data", "ChangeData", null, new { @class = "btn btn-success" })
+    @Html.ActionLink(Resources.Translations.ChangeYourData, "ChangeData", null, new { @class = "btn btn-success" })
     <br />
     <br />
-    <h3>Amount of postcards: @Model.Postcards.Count</h3>
+    <h3>@Resources.Translations.AmountOfPostcards: @Model.Postcards.Count</h3>
     <br />
     <center>
         <div id="images"></div>
         <img id="loader" src="~/Content/img/loading.gif" style="height:30px;width:30px;display:none" />
         <br />
         <br />
-        <button id="more-postcards-button" class="btn btn-success">More</button>
+        <button id="more-postcards-button" class="btn btn-success">@Resources.Translations.More</button>
     </center>
 </div>
 

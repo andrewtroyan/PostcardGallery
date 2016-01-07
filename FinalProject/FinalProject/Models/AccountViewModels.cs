@@ -5,8 +5,9 @@ namespace FinalProject.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceName = "EmailRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Translations))]
         public string Email { get; set; }
     }
 
@@ -48,43 +49,50 @@ namespace FinalProject.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Username")]
+        [Required(ErrorMessageResourceName = "UsernameRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [Display(Name = "Username", ResourceType = typeof(Resources.Translations))]
         public string Username { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Required(ErrorMessageResourceName = "PasswordRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [DataType(DataType.Password, ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Translations))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Remember", ResourceType = typeof(Resources.Translations))]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Required]
-        [StringLength(100, ErrorMessage =
-            "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [Display(Name = "Username")]
+        [Required(ErrorMessageResourceName = "UsernameRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [StringLength(100, MinimumLength = 6, ErrorMessageResourceType = 
+            typeof(Resources.Translations), ErrorMessageResourceName = "StringLengthError")]
+        [Display(Name = "Username", ResourceType = typeof(Resources.Translations))]
         public string UserName { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceName = "EmailRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Translations))]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage =
-            "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Required(ErrorMessageResourceName = "PasswordRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [StringLength(100, MinimumLength = 6, ErrorMessageResourceType =
+            typeof(Resources.Translations), ErrorMessageResourceName = "StringLengthError")]
+        [DataType(DataType.Password, ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Translations))]
         public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage =
-            "The password and confirmation password do not match.")]
+        
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(Resources.Translations))]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "PasswordAndConfirmationPasswordDoNotMatch")]
         public string ConfirmPassword { get; set; }
     }
 

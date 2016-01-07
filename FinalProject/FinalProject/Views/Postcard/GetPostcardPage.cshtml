@@ -3,7 +3,7 @@
 @model FinalProject.Models.Postcard
 
 @{
-    ViewBag.Title = "Postcard";
+    ViewBag.Title = Resources.Translations.Postcard;
 }
 
 @section styles
@@ -13,18 +13,26 @@
     <link type="text/css" rel="stylesheet" href="~/Content/star-rating/star-rating.min.css" />
 }
 
-<span id="postcard-id" style="display:none">@Model.Id</span>
-<span id="username" style="display:none">@User.Identity.GetUserName()</span>
+<span id="data" 
+      data-postcard-id="@Model.Id" 
+      data-username="@User.Identity.GetUserName()"
+      data-newest-text="@Resources.Translations.Newest"
+      data-oldest-text="@Resources.Translations.Oldest"
+      data-popular-text="@Resources.Translations.Popular"
+      data-send-text="@Resources.Translations.Send"
+      data-no-comments-text="@Resources.Translations.NoComments"
+      data-textarea-placeholder-text="@Resources.Translations.YourComment">
+</span>
 
 <center>
     <h1>@Model.Name</h1>
-    <p>Author: @Html.ActionLink(@Model.Owner.UserName, "GetUserPage", "User", new { userId = Model.OwnerId }, null)</p>
+    <p>@Resources.Translations.Author: @Html.ActionLink(@Model.Owner.UserName, "GetUserPage", "User", new { userId = Model.OwnerId }, null)</p>
     <img id="main-postcard" src="@Model.ImageUrl" alt="@Model.Name" 
          title="@Model.Name" style="max-height:100%;max-width:100%" />
 </center>
 <br/>
 <div id="hashTags" class="container">
-    <p class="pull-left">Tags:&nbsp;&nbsp;</p>
+    <p class="pull-left">@Resources.Translations.Tags:&nbsp;&nbsp;</p>
     @foreach (HashTag hashTag in Model.HashTags)
     {
         <p class="pull-left">
@@ -37,12 +45,12 @@
 {
     <br />
     <center>
-        <p>Average rating: 
+        <p>@Resources.Translations.AverageRating: 
             <span id="average-rating">@Model.AverageRating</span>
         </p>
         <img id="rating-loader" src="~/Content/OwlCarousel/AjaxLoader.gif"
              style="display:none" />
-        <p id="rate-success" style="color:green;display:none">Your rating was successfully changed!</p>
+        <p id="rate-success" style="color:green;display:none">@Resources.Translations.YourRatingWasSuccessfullyChanged!</p>
         <input id="rating" type="number" class="rating" min="0" max="5" step="1"
                value="@ViewBag.RatingValue" />
     </center>

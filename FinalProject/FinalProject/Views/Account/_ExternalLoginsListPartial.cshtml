@@ -13,8 +13,8 @@
             {
                 <button type="submit" class="btn btn-social btn-@p.Caption.ToLower()" id="@p.AuthenticationType"
                         name="provider" value="@p.AuthenticationType"
-                        title="Log in using your @p.Caption account" style="margin:5px">
-                    <span class="fa fa-@p.Caption.ToLower()"></span>@p.Caption
+                        title="@String.Format(Resources.Translations.LogInUsingYour_Account, p.Caption)" style="margin:5px">
+                    <span class="fa fa-@p.Caption.ToLower()"></span>@Resources.Translations.ResourceManager.GetString(p.AuthenticationType)
                 </button><br/>
             }
         </div>

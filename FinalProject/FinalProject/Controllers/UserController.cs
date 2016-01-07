@@ -11,19 +11,18 @@ namespace FinalProject.Controllers
     [Culture]
     public class UserController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
-
         public ActionResult GetUserPage(string userId)
         {
             if (userId == null)
             {
-                ViewBag.Reason = "You didn't enter user's id.";
+                ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotEnterUserId);
                 return View("Error");
             }
+            ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.SingleOrDefault(u => u.Id == userId);
             if (user == null)
             {
-                ViewBag.Reason = "User doesn't exist.";
+                ViewBag.Reason = String.Format("{0}.", Resources.Translations.UserDoesNotExist);
                 return View("Error");
             }
             return View(user);

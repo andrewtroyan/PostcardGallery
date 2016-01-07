@@ -43,41 +43,51 @@ namespace FinalProject.Models
 
     public class ChangePasswordViewModel
     {
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Required(ErrorMessageResourceName = "PasswordRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [DataType(DataType.Password, ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "CurrentPassword", ResourceType = typeof(Resources.Translations))]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage =
-            "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Required(ErrorMessageResourceName = "PasswordRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [StringLength(100, MinimumLength = 6, ErrorMessageResourceType =
+            typeof(Resources.Translations), ErrorMessageResourceName = "StringLengthError")]
+        [DataType(DataType.Password, ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "NewPassword", ResourceType = typeof(Resources.Translations))]
         public string NewPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage =
-            "The new password and confirmation password do not match.")]
+        
+        [Display(Name = "ConfirmNewPassword", ResourceType = typeof(Resources.Translations))]
+        [Compare("NewPassword", ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "PasswordAndConfirmationPasswordDoNotMatch")]
         public string ConfirmPassword { get; set; }
     }
 
     public class ChangeDataViewModel
     {
-        [Required]
-        [Display(Name = "Username")]
+        [Required(ErrorMessageResourceName = "UsernameRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [Display(Name = "Username", ResourceType = typeof(Resources.Translations))]
         public string UserName { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessageResourceName = "EmailRequired",
+            ErrorMessageResourceType = typeof(Resources.Translations))]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Translations))]
         public string Email { get; set; }
 
+        [Display(Name = "Name", ResourceType = typeof(Resources.Translations))]
         public string Name { get; set; }
 
+        [Display(Name = "Surname", ResourceType = typeof(Resources.Translations))]
         public string Surname { get; set; }
 
-        [Phone]
-        [Display(Name = "Phone number")]
+        [Phone(ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "IncorrectFormat")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resources.Translations))]
         public string PhoneNumber { get; set; }
     }
 

@@ -120,11 +120,53 @@
   <data name="AmountOfPostcards" xml:space="preserve">
     <value>Количество открыток</value>
   </data>
+  <data name="AnErrorOccurredWhileProcessingYourRequest" xml:space="preserve">
+    <value>При выполнении вашего запроса возникла ошибка</value>
+  </data>
+  <data name="AssociateYour_Account" xml:space="preserve">
+    <value>Свяжите ваш аккаунт в {0}</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="AverageRating" xml:space="preserve">
+    <value>Средний рейтинг</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Изменить пароль</value>
+  </data>
+  <data name="ChangeYourData" xml:space="preserve">
+    <value>Изменить ваши данные</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Подтвердите новый пароль</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
   <data name="CreateAPostcard" xml:space="preserve">
     <value>Создать открытку</value>
   </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Создать новый аккаунт</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Текущий пароль</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>По умолчанию</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Эл. почта</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Поле 'Эл. почта' обязательно для заполнения</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
   </data>
   <data name="ForFifteenHighRatings" xml:space="preserve">
     <value>За 15 высоких оценок</value>
@@ -150,11 +192,20 @@
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
   </data>
+  <data name="IncorrectFormat" xml:space="preserve">
+    <value>Поле '{0}' имеет неверный формат</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>Неверная попытка входа</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
+  </data>
+  <data name="LogInUsingYour_Account" xml:space="preserve">
+    <value>Войдите, используя ваш аккаунт в {0}</value>
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>Выйти</value>
@@ -162,17 +213,92 @@
   <data name="More" xml:space="preserve">
     <value>Ещё</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Новые</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="NewPasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Новый пароль и подтверждающий пароль не совпадают</value>
+  </data>
+  <data name="NoComments" xml:space="preserve">
+    <value>Нет комментариев</value>
+  </data>
+  <data name="Oldest" xml:space="preserve">
+    <value>Старые</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Пароль и подтверждающий пароль не совпадают</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Поле 'Пароль' обязательно для заполнения</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Popular" xml:space="preserve">
+    <value>Популярные</value>
+  </data>
+  <data name="Postcard" xml:space="preserve">
+    <value>Открытка</value>
+  </data>
+  <data name="PostcardsWithTag" xml:space="preserve">
+    <value>Открытки с тегом</value>
+  </data>
   <data name="Rating" xml:space="preserve">
     <value>Рейтинг</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="RegisterAuthenticatedAccount" xml:space="preserve">
+    <value>Вы успешно аутентифицировались с {0}. Пожалуйста, введите адрес электронной почты для этого сайта ниже и нажмите на кнопку {1}, чтобы завершить вход.</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Запомнить</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>
   </data>
+  <data name="StringLengthError" xml:space="preserve">
+    <value>Поле '{0}' должно содержать минимум {2} символов</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
+  <data name="TenLatelyAdded" xml:space="preserve">
+    <value>10 последних добавленных</value>
+  </data>
   <data name="Themes" xml:space="preserve">
     <value>Темы</value>
+  </data>
+  <data name="ThereAreNoImageWithGivenId" xml:space="preserve">
+    <value>Нет открытки с данным id</value>
+  </data>
+  <data name="TopFive" xml:space="preserve">
+    <value>Топ 5</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Twitter</value>
   </data>
   <data name="UseALocalAccountToLogIn" xml:space="preserve">
     <value>Используйте локальную запись для входа</value>
@@ -183,7 +309,37 @@
   <data name="User" xml:space="preserve">
     <value>Пользователь</value>
   </data>
+  <data name="UserDoesNotExist" xml:space="preserve">
+    <value>Пользователя не существует</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="UsernameRequired" xml:space="preserve">
+    <value>Поле 'Логин' обязательно для заполнения</value>
+  </data>
   <data name="VioletAndBeige" xml:space="preserve">
     <value>Фиолетово-бежевая</value>
+  </data>
+  <data name="Vkontakte" xml:space="preserve">
+    <value>Вконтакте</value>
+  </data>
+  <data name="YouDidNotChoosePostcard" xml:space="preserve">
+    <value>Вы не выбрали открытку</value>
+  </data>
+  <data name="YouDidNotEnterAnything" xml:space="preserve">
+    <value>Вы ничего не ввели</value>
+  </data>
+  <data name="YouDidNotEnterHashTag" xml:space="preserve">
+    <value>Вы не ввели хештег</value>
+  </data>
+  <data name="YouDidNotEnterUserId" xml:space="preserve">
+    <value>Вы не ввели id пользователя</value>
+  </data>
+  <data name="YourComment" xml:space="preserve">
+    <value>Ваш комментарий</value>
+  </data>
+  <data name="YourRatingWasSuccessfullyChanged" xml:space="preserve">
+    <value>Ваша оценка была успешно изменена</value>
   </data>
 </root>

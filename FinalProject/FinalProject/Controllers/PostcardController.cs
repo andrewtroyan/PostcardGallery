@@ -21,14 +21,14 @@ namespace FinalProject.Controllers
         {
             if (id == null)
             {
-                ViewBag.Reason = "You didn't choose an image.";
+                ViewBag.Reason = String.Format("{0}.", Resources.Translations.YouDidNotChoosePostcard);
                 return View("Error");
             }
             var postcard = dataBase.Postcards.SingleOrDefault(p =>
                 p.Id == id);
             if (postcard == null)
             {
-                ViewBag.Reason = "There are no image with given id.";
+                ViewBag.Reason = String.Format("{0}.", Resources.Translations.ThereAreNoImageWithGivenId);
                 return View("Error");
             }
 
