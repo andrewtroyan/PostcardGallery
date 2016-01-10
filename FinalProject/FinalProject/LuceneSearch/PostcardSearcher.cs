@@ -53,9 +53,9 @@ namespace FinalProject.LuceneSearch
                 Field.Index.NOT_ANALYZED));
             doc.Add(new Field("Name", postcard.Name, Field.Store.YES,
                 Field.Index.ANALYZED));
-            doc.Add(new Field("ImageUrl", postcard.ImageUrl, Field.Store.YES,
+            doc.Add(new Field("ImagePath", postcard.ImagePath, Field.Store.YES,
                 Field.Index.NOT_ANALYZED));
-            doc.Add(new Field("ThumbnailUrl", postcard.ThumbnailUrl, Field.Store.YES,
+            doc.Add(new Field("JsonPath", postcard.JsonPath, Field.Store.YES,
                 Field.Index.NOT_ANALYZED));
             writer.AddDocument(doc);
         }
@@ -128,8 +128,8 @@ namespace FinalProject.LuceneSearch
                 Id = Convert.ToInt32(doc.Get("Id")),
                 OwnerId = doc.Get("OwnerId"),
                 Name = doc.Get("Name"),
-                ImageUrl = doc.Get("ImageUrl"),
-                ThumbnailUrl = doc.Get("ThumbnailUrl")
+                ImagePath = doc.Get("ImagePath"),
+                JsonPath = doc.Get("JsonPath")
             };
         }
 

@@ -5,8 +5,11 @@
 
     var notificationHub = $.connection.notificationHub;
 
-    notificationHub.client.addComment = function (data) {
-        $('#comment-list').prepend(parseToComment(userId, JSON.parse(data)));
+    notificationHub.client.addComment = function (comment) {
+        var comments = $('.jquery-comments').data('comments');
+        var commentModel = comments.createCommentModel(JSON.parse(comment));
+        comments.addCommentToDataModel(commentModel);
+        comments.addComment(commentModel);
     }
 
     $('#rating').rating({
@@ -58,6 +61,9 @@
                             dataType: 'json',
                             url: '/Comment/Like?commentId=' + commentJSON.id,
                             success: function (data) {
+                                console.log(commentJSON.upvote_count);
+                                commentJSON.upvote_count = data.upvoteCount;
+                                console.log(commentJSON.upvote_count);
                                 success(commentJSON);
                             }
                         });
@@ -66,6 +72,7 @@
                             dataType: 'json',
                             url: '/Comment/Dislike?commentId=' + commentJSON.id,
                             success: function (data) {
+                                commentJSON.upvote_count = data.upvoteCount;
                                 success(commentJSON);
                             }
                         });
@@ -79,9 +86,8 @@
                             commentJSON.created,
                         success: function (data) {
                             commentJSON.id = data.id;
-                            commentJSON.userId = userId;
-                            notificationHub.server.onNewComment(JSON.stringify(commentJSON), postcardId);
                             success(commentJSON);
+                            notificationHub.server.onNewComment(JSON.stringify(commentJSON), postcardId);
                         }
                     });
                 },
@@ -101,29 +107,4 @@
     $(window).unload(function () {
         notificationHub.server.leaveGroup(postcardId);
     });
-
-    var parseToComment = function(currentUserId, jsonData) {
-        var isLiked = jsonData.userId === currentUserId && jsonData.user_has_upvoted === true ? ' highlight-font' : '';
-        return '<li data-id="' + jsonData.id + '" class="comment">' +
-            '<div class="comment-wrapper">' +
-            '<img src="' + jsonData.profile_picture_url + '" class="profile-picture round"/>' +
-            '<time data-original="' + jsonData.created + '">' + new Date(jsonData.created).format('dd/mm/yyyy HH:MM:ss') + '</time>' +
-            '<div class="name">' + jsonData.fullname + '</div>' +
-            '<div class="wrapper">' +
-            '<div class="content">' + jsonData.content + '</div>' +
-            '<span class="actions">' +
-            '<button class="action upvote' + isLiked + '">' +
-            '<span class="upvote-count">' + jsonData.upvote_count + '</span>' +
-            '<i class="fa fa-thumbs-up"></i>' +
-            '</button>' +
-            '</span>' +
-            '</div>' +
-            '</div>' +
-            '<ul class="child-comments"></ul>' +
-            '</li>';
-    }
-
-    $('.own').click(function () {
-        alert('hi!');
-    })
 });

@@ -1,0 +1,72 @@
+﻿@using System.Configuration;
+@using FinalProject.Models;
+@model FinalProject.Models.Template
+
+<span id="data"
+      data-template-name="@Model.Name"
+      data-json-path="@Model.JsonPath"
+      data-token="@ConfigurationManager.AppSettings["DropboxToken"]">
+</span>
+
+<h1 style="text-align:center">@Model.Name</h1>
+<br />
+<div class="container">
+    <div class="container">
+        <div class="col-md-6">
+            <br />
+            <div id="category-section">
+                <div class="form-inline">
+                    <select id="category-combobox" class="combobox form-control">
+                        <option value="" selected="selected">@Resources.Translations.SelectCategory</option>
+                        @foreach (Category category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id">@Resources.Translations.ResourceManager.GetString(category.Value)</option>
+                        }
+                    </select>
+                </div>
+                <span id="category-required" style="color:red;display:none">@Resources.Translations.CategoryRequired.</span>
+                <br />
+            </div>
+            <div id="name">
+                <input id="name-input" type="text" class="form-control" placeholder="@Resources.Translations.Name">
+                <span id="name-required" style="color:red;display:none">@Resources.Translations.NameRequired.</span>
+                <br />
+            </div>
+            <div id="text-fields">
+            </div>
+            <div id="tag-section">
+                <div id="tag-warning" class="input-append">
+                    <input type="text" class="form-control" placeholder="@Resources.Translations.AddTags"
+                           name="term" data-autocomplete-source='@Url.Action("CompleteHashTags", "Search")'>
+                </div>
+                <br />
+                <ul id="tag-cloud" style="margin:0px"></ul>
+                <br />
+            </div>
+            <button id="file-opener" class="btn btn-primary">
+                @Resources.Translations.UploadImage
+            </button>
+            <input id="actual-file-opener" type="file" style="display:none"/> 
+        </div>
+        <div class="col-md-6">
+            <br />
+            <center>
+                <canvas id="main-canvas" style="width:500px;height:500px;border:1px solid #000000;
+                    box-shadow:0 0 10px rgba(0,0,0,0.5)"></canvas>
+            </center>
+        </div>
+    </div>
+    <br />
+    <br />
+    <center>
+        <button id="save-button" class="btn btn-success">@Resources.Translations.Save</button>
+    </center>
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/fabric.js"></script>
+<script type="text/javascript" src="~/Scripts/Animations/animations.js"></script>
+<script type="text/javascript" src="~/Scripts/HashTags/bootstrap-tag-cloud.js"></script>
+<script type="text/javascript" src="~/Scripts/Combobox/bootstrap-combobox.js"></script>
+<script type="text/javascript" src="~/Scripts/dropbox.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Common/loadTemplate.js"></script>

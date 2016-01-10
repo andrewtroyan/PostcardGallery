@@ -22,18 +22,18 @@ namespace FinalProject.Controllers
             {
                 return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            ApplicationDbContext db = new ApplicationDbContext();
+            Comment comment = db.Comments.SingleOrDefault(c => c.Id ==
+                commentId);
+            if (commentId == null)
             {
-                Comment comment = db.Comments.SingleOrDefault(c => c.Id ==
-                    commentId);
-                if (commentId == null)
-                {
-                    return Json(new { success = false }, JsonRequestBehavior.AllowGet);
-                }
-                comment.Like(User.Identity.GetUserId());
-                ProcessMedalsForLikes(comment);
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            comment.Like(User.Identity.GetUserId());
+            db.SaveChanges();
+            ProcessMedalsForLikes(comment);
+            return Json(new { upvoteCount = comment.Likers.Count }, 
+                JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Dislike(int? commentId)
@@ -42,17 +42,17 @@ namespace FinalProject.Controllers
             {
                 return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            ApplicationDbContext db = new ApplicationDbContext();
+            Comment comment = db.Comments.SingleOrDefault(c => c.Id ==
+                commentId);
+            if (commentId == null)
             {
-                Comment comment = db.Comments.SingleOrDefault(c => c.Id ==
-                    commentId);
-                if (commentId == null)
-                {
-                    return Json(new { success = false }, JsonRequestBehavior.AllowGet);
-                }
-                comment.Dislike(User.Identity.GetUserId());
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            comment.Dislike(User.Identity.GetUserId());
+            db.SaveChanges();
+            return Json(new { upvoteCount = comment.Likers.Count }, 
+                JsonRequestBehavior.AllowGet);
         }
         
         public JsonResult PostComment(int? postcardId, string value,

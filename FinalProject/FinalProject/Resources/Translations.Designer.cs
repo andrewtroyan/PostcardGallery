@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add tags.
+        /// </summary>
+        public static string AddTags {
+            get {
+                return ResourceManager.GetString("AddTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount of postcards.
         /// </summary>
         public static string AmountOfPostcards {
@@ -75,6 +84,15 @@ namespace Resources {
         public static string AnErrorOccurredWhileProcessingYourRequest {
             get {
                 return ResourceManager.GetString("AnErrorOccurredWhileProcessingYourRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animals.
+        /// </summary>
+        public static string Animals {
+            get {
+                return ResourceManager.GetString("Animals", resourceCulture);
             }
         }
         
@@ -106,6 +124,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field with category is required.
+        /// </summary>
+        public static string CategoryRequired {
+            get {
+                return ResourceManager.GetString("CategoryRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
         public static string ChangePassword {
@@ -120,6 +156,15 @@ namespace Resources {
         public static string ChangeYourData {
             get {
                 return ResourceManager.GetString("ChangeYourData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cities.
+        /// </summary>
+        public static string Cities {
+            get {
+                return ResourceManager.GetString("Cities", resourceCulture);
             }
         }
         
@@ -174,6 +219,15 @@ namespace Resources {
         public static string Default {
             get {
                 return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editor.
+        /// </summary>
+        public static string Editor {
+            get {
+                return ResourceManager.GetString("Editor", resourceCulture);
             }
         }
         
@@ -358,6 +412,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name is required.
+        /// </summary>
+        public static string NameRequired {
+            get {
+                return ResourceManager.GetString("NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nature.
+        /// </summary>
+        public static string Nature {
+            get {
+                return ResourceManager.GetString("Nature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Newest.
         /// </summary>
         public static string Newest {
@@ -520,6 +592,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a category.
+        /// </summary>
+        public static string SelectCategory {
+            get {
+                return ResourceManager.GetString("SelectCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a template.
+        /// </summary>
+        public static string SelectTemplate {
+            get {
+                return ResourceManager.GetString("SelectTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
         public static string Send {
@@ -615,6 +705,15 @@ namespace Resources {
         public static string Twitter {
             get {
                 return ResourceManager.GetString("Twitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload an image.
+        /// </summary>
+        public static string UploadImage {
+            get {
+                return ResourceManager.GetString("UploadImage", resourceCulture);
             }
         }
         

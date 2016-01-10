@@ -139,7 +139,7 @@ namespace FinalProject.LuceneSearch
         private static Query ParseQuery(string searchQuery, QueryParser parser)
         {
             Query query;
-            searchQuery = searchQuery.Trim();
+            searchQuery = searchQuery.Trim().ToLower() + "*";
             try
             {
                 query = parser.Parse(searchQuery);
@@ -152,7 +152,7 @@ namespace FinalProject.LuceneSearch
         }
 
         public static IEnumerable<HashTag> Search(string searchQuery,
-            string searchField)
+            string searchField, int hitsLimit = 1000)
         {
             if (String.IsNullOrEmpty(searchQuery) || String.IsNullOrEmpty(searchField))
             {
@@ -161,7 +161,6 @@ namespace FinalProject.LuceneSearch
             IEnumerable<HashTag> results = null;
             using (var searcher = new IndexSearcher(HashtagDirectory, false))
             {
-                var hitsLimit = 1000;
                 var analyzer = new StandardAnalyzer(Version.LUCENE_30);
                 var parser = new QueryParser(Version.LUCENE_30, searchField, analyzer);
                 var query = ParseQuery(searchQuery, parser);

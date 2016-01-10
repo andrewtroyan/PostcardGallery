@@ -20,7 +20,10 @@ namespace FinalProject
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ApplicationDbContext db = new ApplicationDbContext();
+            PostcardSearcher.ClearIndex();
             PostcardSearcher.AddUpdateLuceneIndex(db.Postcards);
+            HashTagSearcher.ClearIndex();
+            HashTagSearcher.AddUpdateLuceneIndex(db.HashTags);
         }
     }
 }

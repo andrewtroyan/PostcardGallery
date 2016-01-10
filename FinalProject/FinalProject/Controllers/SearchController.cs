@@ -62,5 +62,13 @@ namespace FinalProject.Controllers
             ViewBag.SearchingValue = value;
             return View(uniquePostcards);
         }
+
+        [HttpGet] 
+        public JsonResult CompleteHashTags(string term)
+         {
+            var hashTags = HashTagSearcher.Search(term, "Value", 5).Select(
+                h => h.Value);
+            return Json(hashTags, JsonRequestBehavior.AllowGet);
+        }
     }
 }

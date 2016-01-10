@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.0.23.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.0.23\lib\net40\CloudinaryDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Duke.Owin.VkontakteMiddleware, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Duke.Owin.VkontakteMiddleware.1.2.0.0\lib\net45\Duke.Owin.VkontakteMiddleware.dll</HintPath>
       <Private>True</Private>
@@ -54,6 +58,46 @@
     </Reference>
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.FastVectorHighlighter, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.FastVectorHighlighter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter, Version=2.3.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Regex, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Regex.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SimpleFacetedSearch, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SimpleFacetedSearch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball, Version=2.0.0.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -246,6 +290,22 @@
     <Compile Include="Migrations\201601050909402_PostcardAverageRating1.Designer.cs">
       <DependentUpon>201601050909402_PostcardAverageRating1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601080934364_Template.cs" />
+    <Compile Include="Migrations\201601080934364_Template.Designer.cs">
+      <DependentUpon>201601080934364_Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601081109142_TemplateName.cs" />
+    <Compile Include="Migrations\201601081109142_TemplateName.Designer.cs">
+      <DependentUpon>201601081109142_TemplateName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601101410437_Template1.cs" />
+    <Compile Include="Migrations\201601101410437_Template1.Designer.cs">
+      <DependentUpon>201601101410437_Template1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601102141477_Postcards.cs" />
+    <Compile Include="Migrations\201601102141477_Postcards.Designer.cs">
+      <DependentUpon>201601102141477_Postcards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -256,6 +316,7 @@
     <Compile Include="Models\MedalModel.cs" />
     <Compile Include="Models\PostcardModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
+    <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Translations.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -272,11 +333,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Combobox\bootstrap-combobox.css" />
     <Content Include="Content\CommonCSS\common.css" />
+    <Content Include="Content\CommonCSS\wiggleAnimation.css" />
+    <Content Include="Content\HashTags\bootstrap-tag-cloud.css" />
     <Content Include="Content\img\GitHub-Mark-32px.png" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\play-pause.svg" />
     <Content Include="Content\img\search-icon.png" />
+    <Content Include="Content\img\svgclock.svg" />
     <Content Include="Content\img\user.png" />
     <Content Include="Content\JQCloud\jqcloud.css" />
     <Content Include="Content\jquery-comments\font-awesome.min.css" />
@@ -292,8 +357,52 @@
     <Content Include="Content\SocialButtons\bootstrap-social.css" />
     <Content Include="Content\star-rating\loading.gif" />
     <Content Include="Content\star-rating\star-rating.min.css" />
+    <Content Include="Content\Themes\base\accordion.css" />
+    <Content Include="Content\Themes\base\all.css" />
+    <Content Include="Content\Themes\base\autocomplete.css" />
+    <Content Include="Content\Themes\base\base.css" />
+    <Content Include="Content\Themes\base\button.css" />
+    <Content Include="Content\Themes\base\core.css" />
+    <Content Include="Content\Themes\base\datepicker.css" />
+    <Content Include="Content\Themes\base\dialog.css" />
+    <Content Include="Content\Themes\base\draggable.css" />
+    <Content Include="Content\Themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Themes\base\menu.css" />
+    <Content Include="Content\Themes\base\progressbar.css" />
+    <Content Include="Content\Themes\base\resizable.css" />
+    <Content Include="Content\Themes\base\selectable.css" />
+    <Content Include="Content\Themes\base\selectmenu.css" />
+    <Content Include="Content\Themes\base\slider.css" />
+    <Content Include="Content\Themes\base\sortable.css" />
+    <Content Include="Content\Themes\base\spinner.css" />
+    <Content Include="Content\Themes\base\tabs.css" />
+    <Content Include="Content\Themes\base\theme.css" />
+    <Content Include="Content\Themes\base\tooltip.css" />
+    <Content Include="Scripts\Animations\animations.js" />
+    <Content Include="Scripts\Combobox\bootstrap-combobox.js" />
+    <Content Include="Scripts\Common\loadEditor.js" />
+    <Content Include="Scripts\Common\loadTemplate.js" />
+    <Content Include="Scripts\dropbox.min.js" />
+    <Content Include="Scripts\fabric.js" />
+    <Content Include="Scripts\HashTags\bootstrap-tag-cloud.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\StyleSwitcher\jQuery.style.switcher.min.js" />
     <Content Include="Content\Themes\BlackWhite.css" />
     <Content Include="Content\Themes\GrayGreen.css" />
@@ -331,6 +440,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\star-rating\star-rating.min.js" />
+    <Content Include="Scripts\validator.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -369,9 +479,12 @@
     <Content Include="Views\Search\GetImagesByHashTag.cshtml" />
     <Content Include="Views\Search\GetImagesAll.cshtml" />
     <Content Include="Views\User\GetUserPage.cshtml" />
+    <Content Include="Views\Postcard\CreatePostcard.cshtml" />
+    <Content Include="Views\Postcard\LoadTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cloud\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Culture\" />
     <Folder Include="Views\Data\" />
@@ -414,6 +527,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601050909402_PostcardAverageRating1.resx">
       <DependentUpon>201601050909402_PostcardAverageRating1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601080934364_Template.resx">
+      <DependentUpon>201601080934364_Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601081109142_TemplateName.resx">
+      <DependentUpon>201601081109142_TemplateName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601101410437_Template1.resx">
+      <DependentUpon>201601101410437_Template1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601102141477_Postcards.resx">
+      <DependentUpon>201601102141477_Postcards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Translations.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

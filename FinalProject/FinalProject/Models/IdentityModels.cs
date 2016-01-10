@@ -70,6 +70,8 @@ namespace FinalProject.Models
 
         public DbSet<Rating> Ratings { get; set; }
 
+        public DbSet<Template> Templates { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

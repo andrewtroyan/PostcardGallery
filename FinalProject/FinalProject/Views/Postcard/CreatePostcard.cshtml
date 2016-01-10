@@ -1,0 +1,42 @@
+﻿@using FinalProject.Models;
+@model IEnumerable<Template>
+
+@{ 
+    ViewBag.Title = Resources.Translations.Editor;
+}
+
+@section styles
+{
+    <link type="text/css" rel="stylesheet" href="~/Content/CommonCSS/wiggleAnimation.css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/Combobox/bootstrap-combobox.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Themes/base/all.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/HashTags/bootstrap-tag-cloud.css" />
+}
+
+<br/>
+<div class="container">
+    <div class="btn-group">
+        <button id="drop-button" type="button" class="btn btn-default btn-lg dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @Resources.Translations.SelectTemplate&nbsp;&nbsp;<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            @foreach (var template in Model)
+            {
+                <li>@Ajax.ActionLink(template.Name, "LoadTemplate", new { templateId = template.Id },
+                   new AjaxOptions { UpdateTargetId = "postcard-data", OnBegin = "$('#loader').show();" })</li>
+            }
+        </ul>
+    </div>
+    <center>
+        <img id="loader" src="~/Content/img/loading.gif" 
+             style="height:30px;width:30px;display:none"/>
+    </center>
+    <div id="postcard-data"></div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Common/loadEditor.js"></script>
+}

@@ -39,8 +39,8 @@ namespace FinalProject.Controllers
                     (p => p.CreationTime).Take(amount.Value).Select
                     (p => new {
                         name = p.Name,
-                        fullUrl = p.ImageUrl,
-                        thumbnailUrl = p.ThumbnailUrl,
+                        imagePath = p.ImagePath,
+                        jsonPath = p.JsonPath,
                         databaseId = p.Id
                     });
                 return Json(postcards, JsonRequestBehavior.AllowGet);
@@ -60,8 +60,8 @@ namespace FinalProject.Controllers
                     (p => p.AverageRating).Take(amount.Value).Select
                     (p => new {
                         name = p.Name,
-                        fullUrl = p.ImageUrl,
-                        thumbnailUrl = p.ThumbnailUrl,
+                        imagePath = p.ImagePath,
+                        jsonPath = p.JsonPath,
                         databaseId = p.Id
                     });
                 return Json(postcards, JsonRequestBehavior.AllowGet);

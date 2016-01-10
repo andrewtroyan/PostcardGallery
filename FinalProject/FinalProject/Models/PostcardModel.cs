@@ -17,10 +17,10 @@ namespace FinalProject.Models
         public string Name { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
+        public string ImagePath { get; set; }
 
         [Required]
-        public string ThumbnailUrl { get; set; }
+        public string JsonPath { get; set; }
 
         [Required]
         public int AverageRating
@@ -45,6 +45,9 @@ namespace FinalProject.Models
 
         public int? CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        public int? TemplateId { get; set; }
+        public virtual Template Template { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

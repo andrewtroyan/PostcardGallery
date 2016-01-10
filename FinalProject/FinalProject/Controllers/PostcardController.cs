@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using FinalProject.Classes_with_extension_methods;
 using FinalProject.LuceneSearch;
 using FinalProject.Filters;
+using System.Collections;
+using System.Threading;
 
 namespace FinalProject.Controllers
 {
@@ -71,9 +73,35 @@ namespace FinalProject.Controllers
             }
             int postcardsToSkip = postcardPage.Value * pageSize.Value;
             var result = PostcardSearcher.Search(userId, "OwnerId").Skip(postcardsToSkip).
-                Take(pageSize.Value).Select(p => new { databaseId = p.Id, thumbnailUrl = 
-                p.ThumbnailUrl, name = p.Name });
+                Take(pageSize.Value).Select(p => new { databaseId = p.Id, imagePath = 
+                p.ImagePath, jsonPath = p.JsonPath, name = p.Name });
             return Json( result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult CreatePostcard()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            return View(db.Templates);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult LoadTemplate(int? templateId)
+        {
+            if (templateId == null)
+            {
+                return new EmptyResult();
+            }
+            ApplicationDbContext db = new ApplicationDbContext();
+            Template template = db.Templates.Single(t => t.Id == templateId);
+            if (template == null)
+            {
+                return new EmptyResult();
+            }
+            ViewBag.Categories = db.Categories;
+            return PartialView(template);
         }
 
         private void ProcessMedalsForRatings(Postcard postcard)

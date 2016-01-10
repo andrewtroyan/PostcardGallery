@@ -345,4 +345,37 @@
   <data name="ThereIsNoSuchHashTags" xml:space="preserve">
     <value>There is no such hashtags</value>
   </data>
+  <data name="SelectTemplate" xml:space="preserve">
+    <value>Select a template</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>Upload an image</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Select a category</value>
+  </data>
+  <data name="Animals" xml:space="preserve">
+    <value>Animals</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>Cities</value>
+  </data>
+  <data name="Nature" xml:space="preserve">
+    <value>Nature</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="AddTags" xml:space="preserve">
+    <value>Add tags</value>
+  </data>
+  <data name="CategoryRequired" xml:space="preserve">
+    <value>Field with category is required</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
 </root>

@@ -345,4 +345,37 @@
   <data name="ThereIsNoSuchHashTags" xml:space="preserve">
     <value>Таких хештегов нет</value>
   </data>
+  <data name="SelectTemplate" xml:space="preserve">
+    <value>Выберите шаблон</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Редактор</value>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>Загрузить изображение</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Выберите категорию</value>
+  </data>
+  <data name="Animals" xml:space="preserve">
+    <value>Животные</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>Города</value>
+  </data>
+  <data name="Nature" xml:space="preserve">
+    <value>Природа</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="AddTags" xml:space="preserve">
+    <value>Добавьте теги</value>
+  </data>
+  <data name="CategoryRequired" xml:space="preserve">
+    <value>Поле с категорией обязательно для заполнения</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Поле 'Имя' обязательно для заполнения</value>
+  </data>
 </root>
