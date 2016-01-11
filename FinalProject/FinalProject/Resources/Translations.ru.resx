@@ -378,4 +378,16 @@
   <data name="NameRequired" xml:space="preserve">
     <value>Поле 'Имя' обязательно для заполнения</value>
   </data>
+  <data name="YourPostcardWasSuccessfullySaved" xml:space="preserve">
+    <value>Ваша открытка была успешно сохранена</value>
+  </data>
+  <data name="ThisIsNotYourPostcard" xml:space="preserve">
+    <value>Это не ваша открытка</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
 </root>

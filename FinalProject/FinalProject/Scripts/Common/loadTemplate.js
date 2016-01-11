@@ -14,19 +14,9 @@
 
     var canvas = initializeCanvas('main-canvas');
 
-    canvas.on({
-        'object:moving': function (e) {
-            e.target.opacity = 0.5;
-        },
-        'object:modified': function (e) {
-            e.target.opacity = 1;
-        }
-    });
-
     var client = new Dropbox.Client({ token: $('#data').data('token') });
 
     client.readFile($('#data').data('json-path'), function (error, data) {
-        $('#loader').hide();
         canvas.loadFromJSON(data);
         canvas.renderAll();
         var input;
@@ -67,17 +57,52 @@
         reader.readAsDataURL(e.target.files[0]);
     });
 
+    var sendToServer = function (tempId, catId, postcardName, tags, imgPath, imgUrl, json) {
+        $.ajax({
+            url: '/Postcard/SavePostcard',
+            type: 'POST',
+            data: {
+                templateId: tempId, categoryId: catId, name: postcardName,
+                hashTags: tags, imagePath: imgPath, imageUrl: imgUrl, jsonPath: json
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#bottom-loader').hide();
+                $('#save-success').fadeIn();
+                setTimeout(function () { $('#save-success').fadeOut(); }, 2000);
+            }
+        });
+    };
+
     $('#save-button').click(function () {
-        alert($('#category-combobox').val());
         if ($('#category-combobox').val().length === 0) {
             $('#category-required').fadeIn();
             setTimeout(function () { $('#category-required').fadeOut(); }, 2000);
             return;
-        }
-        else if ($('#name-input').val().length === 0) {
+        } else if ($('#name-input').val().length === 0) {
             $('#name-required').fadeIn();
             setTimeout(function () { $('#name-required').fadeOut(); }, 2000);
             return;
+        } else {
+            $('#save-button').hide();
+            $('#bottom-loader').show();
+            var tags = $('#tag-cloud li').map(function (i, n) {
+                return $(n).text();
+            }).get().join(',');
+            var imageUrl, imagePath, jsonPath;
+            client.writeFile('/img/' + (new Date()).getTime() + '.svg',
+                canvas.toSVG({ viewBox: { x:175, y: 175, width: 150, height: 150 }}), function (error, stat) {
+                    imagePath = stat.path;
+                    client.makeUrl(imagePath, { download: true }, function (error, shareUrl) {
+                        imageUrl = shareUrl.url;
+                        client.writeFile('/json/postcards/' + (new Date()).getTime() + '.txt',
+                        JSON.stringify(canvas), function (error, stat) {
+                            jsonPath = stat.path;
+                            sendToServer($('#data').data('template-id'), $('#category-combobox').val(),
+                                $('#name-input').val(), tags, imagePath, imageUrl, jsonPath);
+                        });
+                    });
+            });
         }
     });
 });

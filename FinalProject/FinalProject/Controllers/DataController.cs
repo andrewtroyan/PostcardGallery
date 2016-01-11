@@ -40,9 +40,10 @@ namespace FinalProject.Controllers
                     (p => new {
                         name = p.Name,
                         imagePath = p.ImagePath,
+                        imageUrl = p.ImageUrl,
                         jsonPath = p.JsonPath,
                         databaseId = p.Id
-                    });
+                    }).ToList();
                 return Json(postcards, JsonRequestBehavior.AllowGet);
             }
         }
@@ -61,6 +62,7 @@ namespace FinalProject.Controllers
                     (p => new {
                         name = p.Name,
                         imagePath = p.ImagePath,
+                        imageUrl = p.ImageUrl,
                         jsonPath = p.JsonPath,
                         databaseId = p.Id
                     });

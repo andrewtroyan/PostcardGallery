@@ -17,6 +17,9 @@ namespace FinalProject.Models
         public string Name { get; set; }
 
         [Required]
+        public string ImageUrl { get; set; }
+
+        [Required]
         public string ImagePath { get; set; }
 
         [Required]

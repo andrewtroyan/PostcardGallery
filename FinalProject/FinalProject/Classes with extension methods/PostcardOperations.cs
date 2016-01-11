@@ -4,15 +4,25 @@ using System.Linq;
 using System.Web;
 using FinalProject.Models;
 using Microsoft.AspNet.Identity;
+using FinalProject.LuceneSearch;
 
 namespace FinalProject.Classes_with_extension_methods
 {
     static public class PostcardOperations
     {
+        public static void AddHashTags(this Postcard postcard, string hashTags)
+        {
+            foreach (var tag in hashTags.Split(',').Distinct())
+            {
+                postcard.AddHashTag(tag.Trim());
+            }
+        }
+
         public static void AddHashTag(this Postcard postcard, string hashTag)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
+                postcard = db.Postcards.Single(p => p.Id == postcard.Id);
                 HashTag existingHashTag = db.HashTags.SingleOrDefault(h =>
                     h.Value == hashTag);
                 if (existingHashTag == null)
@@ -21,7 +31,7 @@ namespace FinalProject.Classes_with_extension_methods
                     {
                         Value = hashTag
                     };
-                    db.HashTags.Add(existingHashTag);
+                    HashTagSearcher.AddUpdateLuceneIndex(existingHashTag);
                 }
                 postcard.HashTags.Add(existingHashTag);
                 db.SaveChanges();

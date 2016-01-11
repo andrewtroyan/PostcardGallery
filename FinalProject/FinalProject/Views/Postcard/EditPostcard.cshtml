@@ -1,0 +1,55 @@
+﻿@using System.Configuration;
+@model FinalProject.Models.Postcard
+
+@{ 
+    ViewBag.Title = Resources.Translations.Editor;
+}
+
+<span id="data" 
+      data-template-name="@Model.Template.Name"
+      data-image-id="@Model.Id"
+      data-json-path="@Model.JsonPath"
+      data-image-url="@Model.ImageUrl"
+      data-image-path="@Model.ImagePath"
+      data-token="@ConfigurationManager.AppSettings["DropboxToken"]"></span>
+
+
+<br />
+<div class="container">
+    <div class="container">
+        <div class="col-md-6">
+            <br />
+            <div id="name">
+                <input id="name-input" type="text" class="form-control" placeholder="@Resources.Translations.Name"
+                       value="@Model.Name">
+                <span id="name-required" style="color:red;display:none">@Resources.Translations.NameRequired.</span>
+                <br />
+            </div>
+            <div id="text-fields">
+            </div>
+            <button id="file-opener" class="btn btn-primary">
+                @Resources.Translations.UploadImage
+            </button>
+            <input id="actual-file-opener" type="file" style="display:none" />
+        </div>
+        <div class="col-md-6">
+            <br />
+            <center>
+                <canvas id="main-canvas" style="width:500px;height:500px;border:1px solid #000000;
+                    box-shadow:0 0 10px rgba(0,0,0,0.5)"></canvas>
+            </center>
+        </div>
+    </div>
+    <br />
+    <br />
+    <center>
+        <img id="bottom-loader" src="~/Content/img/loading.gif" style="width:30px;height:30px;display:none" />
+        <p id="save-success" style="color:green;display:none">@Resources.Translations.YourPostcardWasSuccessfullySaved!</p>
+        <button id="save-button" class="btn btn-success">@Resources.Translations.Save</button>
+    </center>
+</div>
+
+@section scripts 
+{
+    <script type="text/javascript" src="~/Scripts/Common/loadEditor.js"></script>
+}

@@ -223,6 +223,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editor.
         /// </summary>
         public static string Editor {
@@ -691,6 +709,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This is not your postcard.
+        /// </summary>
+        public static string ThisIsNotYourPostcard {
+            get {
+                return ResourceManager.GetString("ThisIsNotYourPostcard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top 5.
         /// </summary>
         public static string TopFive {
@@ -831,6 +858,15 @@ namespace Resources {
         public static string YourComment {
             get {
                 return ResourceManager.GetString("YourComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your postcard was successfully saved.
+        /// </summary>
+        public static string YourPostcardWasSuccessfullySaved {
+            get {
+                return ResourceManager.GetString("YourPostcardWasSuccessfullySaved", resourceCulture);
             }
         }
         

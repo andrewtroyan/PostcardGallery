@@ -55,6 +55,8 @@ namespace FinalProject.LuceneSearch
                 Field.Index.ANALYZED));
             doc.Add(new Field("ImagePath", postcard.ImagePath, Field.Store.YES,
                 Field.Index.NOT_ANALYZED));
+            doc.Add(new Field("ImageUrl", postcard.ImageUrl, Field.Store.YES,
+                Field.Index.NOT_ANALYZED));
             doc.Add(new Field("JsonPath", postcard.JsonPath, Field.Store.YES,
                 Field.Index.NOT_ANALYZED));
             writer.AddDocument(doc);
@@ -129,6 +131,7 @@ namespace FinalProject.LuceneSearch
                 OwnerId = doc.Get("OwnerId"),
                 Name = doc.Get("Name"),
                 ImagePath = doc.Get("ImagePath"),
+                ImageUrl = doc.Get("ImageUrl"),
                 JsonPath = doc.Get("JsonPath")
             };
         }

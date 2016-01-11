@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             postcard.Rate(User.Identity.GetUserId(), rating.Value);
             ProcessMedalsForRatings(postcard);
             dataBase.SaveChanges();
-            return Json(new { averageRating = postcard.AverageRating }, 
+            return Json(new { averageRating = postcard.AverageRating },
                 JsonRequestBehavior.AllowGet);
         }
 
@@ -73,9 +73,9 @@ namespace FinalProject.Controllers
             }
             int postcardsToSkip = postcardPage.Value * pageSize.Value;
             var result = PostcardSearcher.Search(userId, "OwnerId").Skip(postcardsToSkip).
-                Take(pageSize.Value).Select(p => new { databaseId = p.Id, imagePath = 
-                p.ImagePath, jsonPath = p.JsonPath, name = p.Name });
-            return Json( result, JsonRequestBehavior.AllowGet);
+                Take(pageSize.Value).Select(p => new { databaseId = p.Id, imageUrl =
+                p.ImageUrl, jsonPath = p.JsonPath, name = p.Name });
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -84,6 +84,71 @@ namespace FinalProject.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
             return View(db.Templates);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult EditPostcard(int? id)
+        {
+            if (id == null)
+            {
+                ViewBag.Reason = Resources.Translations.YouDidNotEnterPostcardId;
+                return View("Error");
+            }
+            ApplicationDbContext db = new ApplicationDbContext();
+            Postcard neededPostcard = db.Postcards.SingleOrDefault(p => p.Id == id);
+            if (neededPostcard == null)
+            {
+                ViewBag.Reason = Resources.Translations.ThereIsNoSuchHashTags;
+                return View("Error");
+            }
+            else if (neededPostcard.OwnerId != User.Identity.GetUserId())
+            {
+                ViewBag.Reason = Resources.Translations.ThisIsNotYourPostcard;
+                return View("Error");
+            }
+            return View(neededPostcard);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public JsonResult EditPostcard(int? id, string name, string imageUrl)
+        {
+            if (id == null || name == null || imageUrl == null)
+            {
+                return Json(new { success = false });
+            }
+            ApplicationDbContext db = new ApplicationDbContext();
+            Postcard neededPostcard = db.Postcards.SingleOrDefault(p => p.Id == id);
+            if (neededPostcard == null)
+            {
+                return Json(new { success = false });
+            }
+            neededPostcard.Name = name;
+            neededPostcard.ImageUrl = imageUrl;
+            db.SaveChanges();
+            return Json(new { success = true });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult DeletePostcard(int? id)
+        {
+            if (id == null)
+            {
+                ViewBag.Reson = Resources.Translations.YouDidNotEnterPostcardId;
+                return View("Error");
+            }
+            ApplicationDbContext db = new ApplicationDbContext();
+            Postcard neededPostcard = db.Postcards.SingleOrDefault(p => p.Id == id);
+            if (neededPostcard == null)
+            {
+                ViewBag.Reson = Resources.Translations.ThereAreNoImageWithGivenId;
+                return View("Error");
+            }
+            db.Postcards.Remove(neededPostcard);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -102,6 +167,28 @@ namespace FinalProject.Controllers
             }
             ViewBag.Categories = db.Categories;
             return PartialView(template);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public JsonResult SavePostcard(int? templateId, int? categoryId,
+            string name, string hashTags, string imagePath, string imageUrl, string jsonPath)
+        {
+            if (templateId == null || categoryId == null || name == null ||
+                imageUrl == null || jsonPath == null)
+            {
+                return Json(new { success = false });
+            }
+            Postcard newPostcard = new Postcard { TemplateId = templateId,
+                CategoryId = categoryId, Name = name, ImagePath = imagePath,
+                ImageUrl = imageUrl, JsonPath = jsonPath, OwnerId = 
+                User.Identity.GetUserId() };
+            PostcardSearcher.AddUpdateLuceneIndex(newPostcard);
+            ApplicationDbContext db = new ApplicationDbContext();
+            db.Postcards.Add(newPostcard);
+            db.SaveChanges();
+            newPostcard.AddHashTags(hashTags);
+            return Json(new { success = true });
         }
 
         private void ProcessMedalsForRatings(Postcard postcard)

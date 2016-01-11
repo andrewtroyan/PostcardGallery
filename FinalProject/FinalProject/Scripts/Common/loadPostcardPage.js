@@ -3,6 +3,15 @@
     var username = $('#data').data('username');
     var userId = $('#data').data('user-id');
 
+    var client = new Dropbox.Client({ token: $('#data').data('token') });
+    var canvas = new fabric.Canvas('main-postcard', { height: 500, width: 500 });
+
+    client.readFile($('#data').data('json-path'), function (error, data) {
+        console.log(data);
+        canvas.loadFromJSON(data);
+        animations[$('#data').data('template-name')](canvas);
+    });
+
     var notificationHub = $.connection.notificationHub;
 
     notificationHub.client.addComment = function (comment) {
@@ -102,6 +111,20 @@
                 }
             });
         }
+    });
+
+    $('#delete-button').click(function () {
+        client.remove($('#data').data('json-path'));
+        client.remove($('#data').data('image-path'));
+        $.ajax({
+            url: '/Postcard/DeletePostcard',
+            type: 'POST',
+            data: { id: postcardId },
+            beforeSend: function () {
+                $('#edit-delete-group').hide();
+                $('#loader').show();
+            }
+        });
     });
 
     $(window).unload(function () {

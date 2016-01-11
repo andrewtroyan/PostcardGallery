@@ -4,6 +4,7 @@
 
 <span id="data"
       data-template-name="@Model.Name"
+      data-template-id="@Model.Id"
       data-json-path="@Model.JsonPath"
       data-token="@ConfigurationManager.AppSettings["DropboxToken"]">
 </span>
@@ -59,14 +60,14 @@
     <br />
     <br />
     <center>
+        <img id="bottom-loader" src="~/Content/img/loading.gif" style="width:30px;height:30px;display:none"/>
+        <p id="save-success" style="color:green;display:none">@Resources.Translations.YourPostcardWasSuccessfullySaved!</p>
         <button id="save-button" class="btn btn-success">@Resources.Translations.Save</button>
     </center>
 </div>
 
 <script type="text/javascript" src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
-<script type="text/javascript" src="~/Scripts/fabric.js"></script>
-<script type="text/javascript" src="~/Scripts/Animations/animations.js"></script>
 <script type="text/javascript" src="~/Scripts/HashTags/bootstrap-tag-cloud.js"></script>
 <script type="text/javascript" src="~/Scripts/Combobox/bootstrap-combobox.js"></script>
-<script type="text/javascript" src="~/Scripts/dropbox.min.js"></script>
+<script type="text/javascript" src="~/Scripts/fabric.js"></script>
 <script type="text/javascript" src="~/Scripts/Common/loadTemplate.js"></script>

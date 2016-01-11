@@ -28,8 +28,8 @@
                         for (i = 0; i < data.length; ++i) {
                             $('#images').append(
                             '<a href="/Postcard/GetPostcardPage?id=' + data[i].databaseId + '">' +
-                                '<img src="' + data[i].thumbnailUrl + '" alt="' + data[i].name + '"' +
-                            '" title="' + data[i].name + '"' + ' style="margin:10px">' + '</a>'
+                                '<img src="' + data[i].imageUrl + '" alt="' + data[i].name + '"' +
+                            '" title="' + data[i].name + '"' + ' style="margin:10px;height:150px;width:150px">' + '</a>'
                             );
                         }
                     }

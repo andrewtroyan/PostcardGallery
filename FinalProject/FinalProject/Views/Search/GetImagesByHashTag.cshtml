@@ -13,8 +13,8 @@
         @foreach (var postcard in Model.RelatedPostcards)
         {
             <a href="/Postcard/GetPostcardPage?id=@postcard.Id">
-                <img src="@postcard.ThumbnailUrl" alt="@postcard.Name"
-                     style="margin:10px" title="@postcard.Name">
+                <img src="@postcard.ImageUrl" alt="@postcard.Name"
+                     style="margin:10px;width:150px;height:150px" title="@postcard.Name">
             </a>
         }
     </center>

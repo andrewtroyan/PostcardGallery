@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 @using FinalProject.Models;
+@using System.Configuration;
 @model FinalProject.Models.Postcard
 
 @{
@@ -16,6 +17,10 @@
 <span id="data" 
       data-postcard-id="@Model.Id"
       data-user-id="@User.Identity.GetUserId()" 
+      data-json-path="@Model.JsonPath"
+      data-image-path="@Model.ImagePath"
+      data-template-name="@Model.Template.Name"
+      data-token="@ConfigurationManager.AppSettings["DropboxToken"]"
       data-username="@User.Identity.GetUserName()"
       data-newest-text="@Resources.Translations.Newest"
       data-oldest-text="@Resources.Translations.Oldest"
@@ -29,20 +34,23 @@
     <h2>@Model.Name</h2>
     <p>@Resources.Translations.Author: @Html.ActionLink(@Model.Owner.UserName, "GetUserPage", "User", new { userId = Model.OwnerId }, null)</p>
     <p>@Resources.Translations.Category: @Resources.Translations.ResourceManager.GetString(Model.Category.Value)</p>
-    <img id="main-postcard" src="@Model.ImageUrl" alt="@Model.Name" 
-         title="@Model.Name" style="max-height:100%;max-width:100%" />
+    <canvas id="main-postcard" style="width:150px;height:150px"></canvas>
 </center>
 <br/>
-<div id="hashTags" class="container">
-    <p class="pull-left">@Resources.Translations.Tags:&nbsp;&nbsp;</p>
-    @foreach (HashTag hashTag in Model.HashTags)
-    {
-        <p class="pull-left">
-            #<a href="@String.Format("/Search/GetImagesByHashTag?hashTag={0}",
-                  hashTag.Value)">@hashTag.Value</a>&nbsp;&nbsp;
-        </p>
-    }
-</div>
+@if (Model.HashTags.Any())
+{
+    <div id="hashTags" class="container">
+        <p class="pull-left">@Resources.Translations.Tags:&nbsp;&nbsp;</p>
+        @foreach (HashTag hashTag in Model.HashTags)
+        {
+            <p class="pull-left">
+                #<a href="@String.Format("/Search/GetImagesByHashTag?hashTag={0}",
+             hashTag.Value)">@hashTag.Value</a>&nbsp;&nbsp;
+            </p>
+        }
+    </div>
+}
+
 @if (Request.IsAuthenticated)
 {
     <br />
@@ -55,9 +63,20 @@
         <p id="rate-success" style="color:green;display:none">@Resources.Translations.YourRatingWasSuccessfullyChanged!</p>
         <input id="rating" type="number" class="rating" min="0" max="5" step="1"
                value="@ViewBag.RatingValue" />
-    </center>
+    @if (Model.OwnerId == User.Identity.GetUserId())
+    {
+        <br />
+        <img id="loader" src="~/Content/img/loading.gif" style="width:30px;height:30px;display:none" />
+        <div id="edit-delete-group" class="btn-group">
+             @Html.ActionLink(Resources.Translations.Edit, "EditPostcard", 
+                       new { id = Model.Id }, new { @class = "btn btn-success", type = "button" })
+            <button id="delete-button" type="button" class="btn btn-danger">
+                @Resources.Translations.Delete
+            </button>
+        </div>
+        <br />
+    }
     <br />
-    <center>
         <img id="comments-loader" src="~/Content/OwlCarousel/AjaxLoader.gif" />
     </center>
     <div id="comments-section"></div>

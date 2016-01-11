@@ -2,6 +2,7 @@
 /// <reference path="animations/animations.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="combobox/bootstrap-combobox.js" />
+/// <reference path="common/loadcreator.js" />
 /// <reference path="common/loadeditor.js" />
 /// <reference path="common/loadowlcarousel.js" />
 /// <reference path="common/loadpostcardpage.js" />

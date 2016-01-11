@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    var client = new Dropbox.Client({ token: $('#data').data('token') });
+
     var resizeCarouselItems = function () {
         $('#cloud-container').css('height', $(window).innerHeight() * 2 / 3);
         $('#top-container').css('min-height', $(window).innerHeight() * 2 / 3);
@@ -43,8 +45,8 @@
             for (i = 0; i < data.length; ++i) {
                 container.append(
                 '<a href="/Postcard/GetPostcardPage?id=' + data[i].databaseId + '">' +
-                    '<img src="' + data[i].thumbnailUrl + '" alt="' + data[i].name + '"' +
-                '" title="' + data[i].name + '"' + ' style="margin:10px">' + '</a>'
+                    '<img src="' + data[i].imageUrl + '" alt="' + data[i].name + '"' +
+                '" title="' + data[i].name + '"' + ' style="margin:10px;width:150px;height:150px">' + '</a>'
                 );
             }
         }
@@ -64,8 +66,8 @@
             {
                 container.append(
                 '<a href="/Postcard/GetPostcardPage?id=' + data[i].databaseId + '">' +
-                    '<img src="' + data[i].thumbnailUrl + '" alt="' + data[i].name + '"' +
-                '" title="' + data[i].name + '"' + ' style="margin:10px">' + '</a>'
+                    '<img src="' + data[i].imageUrl + '" alt="' + data[i].name + '"' +
+                '" title="' + data[i].name + '"' + ' style="margin:10px;width:150px;height:150px">' + '</a>'
                 );
             }
         }

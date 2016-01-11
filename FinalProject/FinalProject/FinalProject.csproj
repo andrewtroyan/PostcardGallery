@@ -306,6 +306,14 @@
     <Compile Include="Migrations\201601102141477_Postcards.Designer.cs">
       <DependentUpon>201601102141477_Postcards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601110057149_Postcard1.cs" />
+    <Compile Include="Migrations\201601110057149_Postcard1.Designer.cs">
+      <DependentUpon>201601110057149_Postcard1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601110103200_Postcard2.cs" />
+    <Compile Include="Migrations\201601110103200_Postcard2.Designer.cs">
+      <DependentUpon>201601110103200_Postcard2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -392,6 +400,7 @@
     <Content Include="Content\Themes\base\tooltip.css" />
     <Content Include="Scripts\Animations\animations.js" />
     <Content Include="Scripts\Combobox\bootstrap-combobox.js" />
+    <Content Include="Scripts\Common\loadCreator.js" />
     <Content Include="Scripts\Common\loadEditor.js" />
     <Content Include="Scripts\Common\loadTemplate.js" />
     <Content Include="Scripts\dropbox.min.js" />
@@ -481,6 +490,7 @@
     <Content Include="Views\User\GetUserPage.cshtml" />
     <Content Include="Views\Postcard\CreatePostcard.cshtml" />
     <Content Include="Views\Postcard\LoadTemplate.cshtml" />
+    <Content Include="Views\Postcard\EditPostcard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -539,6 +549,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601102141477_Postcards.resx">
       <DependentUpon>201601102141477_Postcards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601110057149_Postcard1.resx">
+      <DependentUpon>201601110057149_Postcard1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601110103200_Postcard2.resx">
+      <DependentUpon>201601110103200_Postcard2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Translations.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
