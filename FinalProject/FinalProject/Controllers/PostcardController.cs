@@ -132,23 +132,22 @@ namespace FinalProject.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult DeletePostcard(int? id)
+        public JsonResult DeletePostcard(int? id)
         {
             if (id == null)
             {
-                ViewBag.Reson = Resources.Translations.YouDidNotEnterPostcardId;
-                return View("Error");
+                return Json(new { success = false });
             }
             ApplicationDbContext db = new ApplicationDbContext();
             Postcard neededPostcard = db.Postcards.SingleOrDefault(p => p.Id == id);
             if (neededPostcard == null)
             {
-                ViewBag.Reson = Resources.Translations.ThereAreNoImageWithGivenId;
-                return View("Error");
+                return Json(new { success = false });
             }
+            PostcardSearcher.ClearIndexRecord(id.Value);
             db.Postcards.Remove(neededPostcard);
             db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return Json(new { success = true });
         }
 
         [HttpGet]
@@ -183,10 +182,10 @@ namespace FinalProject.Controllers
                 CategoryId = categoryId, Name = name, ImagePath = imagePath,
                 ImageUrl = imageUrl, JsonPath = jsonPath, OwnerId = 
                 User.Identity.GetUserId() };
-            PostcardSearcher.AddUpdateLuceneIndex(newPostcard);
             ApplicationDbContext db = new ApplicationDbContext();
             db.Postcards.Add(newPostcard);
             db.SaveChanges();
+            PostcardSearcher.AddUpdateLuceneIndex(newPostcard);
             newPostcard.AddHashTags(hashTags);
             return Json(new { success = true });
         }

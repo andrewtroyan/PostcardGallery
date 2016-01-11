@@ -47,11 +47,11 @@
     {
         var width = $(window).width();
         if (width <= 600)
-            return 4;
+            return 2;
         else if (width <= 1000)
-            return 8;
+            return 4;
         else if (width <= 1600)
-            return 12;
+            return 8;
         else
             return 16;
     }

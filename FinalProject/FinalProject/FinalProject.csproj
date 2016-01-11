@@ -398,7 +398,7 @@
     <Content Include="Content\Themes\base\tabs.css" />
     <Content Include="Content\Themes\base\theme.css" />
     <Content Include="Content\Themes\base\tooltip.css" />
-    <Content Include="Scripts\Animations\animations.js" />
+    <Content Include="Scripts\Common\animations.js" />
     <Content Include="Scripts\Combobox\bootstrap-combobox.js" />
     <Content Include="Scripts\Common\loadCreator.js" />
     <Content Include="Scripts\Common\loadEditor.js" />

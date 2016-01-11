@@ -390,4 +390,7 @@
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
+  <data name="YourPostcardWasSuccessfullyDeleted" xml:space="preserve">
+    <value>Ваша открытка была успешно удалена</value>
+  </data>
 </root>

@@ -51,12 +51,8 @@ namespace FinalProject.Controllers
                 return View(postcardWithNames);
             }
             PostcardComparer comparer = new PostcardComparer();
-            var postcardWithHastTag = dataBase.HashTags.Where(h =>
-                h.Value.Contains(searchingValue)).Select(h => h.RelatedPostcards).
-                SelectMany(c => c).AsEnumerable();
-            var postcardWithComments = dataBase.Comments.Where(c =>
-                c.Value.Contains(searchingValue)).Select(c => c.RelatedPostcard).
-                AsEnumerable();
+            var postcardWithHastTag = GetPostcardsWithTag(searchingValue);
+            var postcardWithComments = GetPostcardsWithComments(searchingValue);
             var uniquePostcards = postcardWithHastTag.Union(postcardWithComments,
                 comparer).Union(postcardWithNames, comparer);
             ViewBag.SearchingValue = value;
@@ -69,6 +65,22 @@ namespace FinalProject.Controllers
             var hashTags = HashTagSearcher.Search(term, "Value", 5).Select(
                 h => h.Value);
             return Json(hashTags, JsonRequestBehavior.AllowGet);
+        }
+
+        private IEnumerable<Postcard> GetPostcardsWithTag(string searchingValue)
+        {
+            var postcardWithHastTag = dataBase.HashTags.Where(h =>
+                h.Value.Contains(searchingValue)).Select(h => h.RelatedPostcards).
+                SelectMany(c => c).AsEnumerable();
+            return postcardWithHastTag;
+        }
+
+        private IEnumerable<Postcard> GetPostcardsWithComments(string searchingValue)
+        {
+            var postcardWithComments = dataBase.Comments.Where(c =>
+                c.Value.Contains(searchingValue)).Select(c => c.RelatedPostcard).
+                AsEnumerable();
+            return postcardWithComments;
         }
     }
 }

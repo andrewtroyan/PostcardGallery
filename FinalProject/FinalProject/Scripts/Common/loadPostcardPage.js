@@ -119,10 +119,18 @@
         $.ajax({
             url: '/Postcard/DeletePostcard',
             type: 'POST',
+            dataType: 'json',
             data: { id: postcardId },
             beforeSend: function () {
                 $('#edit-delete-group').hide();
                 $('#loader').show();
+            },
+            success: function (data) {
+                $('#loader').hide();
+                $('#rating').fadeOut();
+                $('#comments-section').fadeOut();
+                $('#delete-success').show();
+                setTimeout(function () { $('#delete-success').fadeOut(); }, 2000);
             }
         });
     });

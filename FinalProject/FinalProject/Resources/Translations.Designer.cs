@@ -862,6 +862,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your postcard was successfully deleted.
+        /// </summary>
+        public static string YourPostcardWasSuccessfullyDeleted {
+            get {
+                return ResourceManager.GetString("YourPostcardWasSuccessfullyDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your postcard was successfully saved.
         /// </summary>
         public static string YourPostcardWasSuccessfullySaved {

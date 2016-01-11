@@ -390,4 +390,7 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="YourPostcardWasSuccessfullyDeleted" xml:space="preserve">
+    <value>Your postcard was successfully deleted</value>
+  </data>
 </root>
